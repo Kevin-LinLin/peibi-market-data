@@ -1,18 +1,18 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-01T10:11:23.748Z",
+  "updated_at": "2026-09-01T10:14:09.533Z",
   "metrics": [
     {
       "asset_id": "gold",
       "metric": "price",
-      "value": 4375.5,
+      "value": 4378.5,
       "unit": "USD/troy oz",
       "observation_date": "2026-09-01",
       "published_date": "2026-09-01",
       "source": "Gold API",
       "source_url": "https://api.gold-api.com/price/XAU",
-      "retrieved_at": "2026-09-01T10:11:23.644Z",
-      "latest_available_checked_at": "2026-09-01T10:11:23.644Z",
+      "retrieved_at": "2026-09-01T10:14:09.344Z",
+      "latest_available_checked_at": "2026-09-01T10:14:09.344Z",
       "quality": "automatic verified",
       "status": "available"
     },
@@ -25,8 +25,8 @@
       "published_date": "2026-08-28",
       "source": "FRED",
       "source_url": "https://fred.stlouisfed.org/series/DFII10",
-      "retrieved_at": "2026-09-01T10:11:23.671Z",
-      "latest_available_checked_at": "2026-09-01T10:11:23.671Z",
+      "retrieved_at": "2026-09-01T10:14:09.379Z",
+      "latest_available_checked_at": "2026-09-01T10:14:09.379Z",
       "quality": "automatic verified",
       "status": "available"
     },
@@ -39,8 +39,8 @@
       "published_date": "2026-08-28",
       "source": "FRED",
       "source_url": "https://fred.stlouisfed.org/series/DTWEXBGS",
-      "retrieved_at": "2026-09-01T10:11:23.701Z",
-      "latest_available_checked_at": "2026-09-01T10:11:23.701Z",
+      "retrieved_at": "2026-09-01T10:14:09.449Z",
+      "latest_available_checked_at": "2026-09-01T10:14:09.449Z",
       "quality": "automatic verified",
       "status": "available"
     },
@@ -53,8 +53,8 @@
       "published_date": "2026-08-31",
       "source": "FRED NASDAQ100 derived daily history",
       "source_url": "https://fred.stlouisfed.org/series/NASDAQ100",
-      "retrieved_at": "2026-09-01T10:11:23.733Z",
-      "latest_available_checked_at": "2026-09-01T10:11:23.733Z",
+      "retrieved_at": "2026-09-01T10:14:09.502Z",
+      "latest_available_checked_at": "2026-09-01T10:14:09.502Z",
       "quality": "automatic verified calculation",
       "status": "available"
     },
@@ -67,8 +67,8 @@
       "published_date": "2026-08-31",
       "source": "FRED",
       "source_url": "https://fred.stlouisfed.org/series/NASDAQ100",
-      "retrieved_at": "2026-09-01T10:11:22.254Z",
-      "latest_available_checked_at": "2026-09-01T10:11:22.254Z",
+      "retrieved_at": "2026-09-01T10:14:08.986Z",
+      "latest_available_checked_at": "2026-09-01T10:14:08.986Z",
       "quality": "automatic verified",
       "status": "available"
     },
@@ -81,8 +81,8 @@
       "published_date": "2026-08-31",
       "source": "FRED NASDAQ100 derived daily history",
       "source_url": "https://fred.stlouisfed.org/series/NASDAQ100",
-      "retrieved_at": "2026-09-01T10:11:23.733Z",
-      "latest_available_checked_at": "2026-09-01T10:11:23.733Z",
+      "retrieved_at": "2026-09-01T10:14:09.502Z",
+      "latest_available_checked_at": "2026-09-01T10:14:09.502Z",
       "quality": "automatic verified calculation",
       "status": "available"
     },
@@ -95,8 +95,8 @@
       "published_date": "2026-08-31",
       "source": "FRED SP500 derived daily history",
       "source_url": "https://fred.stlouisfed.org/series/SP500",
-      "retrieved_at": "2026-09-01T10:11:23.747Z",
-      "latest_available_checked_at": "2026-09-01T10:11:23.747Z",
+      "retrieved_at": "2026-09-01T10:14:09.533Z",
+      "latest_available_checked_at": "2026-09-01T10:14:09.533Z",
       "quality": "automatic verified calculation",
       "status": "available"
     },
@@ -109,8 +109,8 @@
       "published_date": "2026-08-31",
       "source": "FRED",
       "source_url": "https://fred.stlouisfed.org/series/SP500",
-      "retrieved_at": "2026-09-01T10:11:23.136Z",
-      "latest_available_checked_at": "2026-09-01T10:11:23.136Z",
+      "retrieved_at": "2026-09-01T10:14:09.086Z",
+      "latest_available_checked_at": "2026-09-01T10:14:09.086Z",
       "quality": "automatic verified",
       "status": "available"
     },
@@ -123,8 +123,8 @@
       "published_date": "2026-08-31",
       "source": "FRED SP500 derived daily history",
       "source_url": "https://fred.stlouisfed.org/series/SP500",
-      "retrieved_at": "2026-09-01T10:11:23.747Z",
-      "latest_available_checked_at": "2026-09-01T10:11:23.747Z",
+      "retrieved_at": "2026-09-01T10:14:09.533Z",
+      "latest_available_checked_at": "2026-09-01T10:14:09.533Z",
       "quality": "automatic verified calculation",
       "status": "available"
     }
