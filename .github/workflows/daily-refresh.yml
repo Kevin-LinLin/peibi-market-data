@@ -1,1 +1,34 @@
+name: Daily market refresh
+on:
+  schedule:
+    - cron: '20 21 * * 1-5'
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: peibi-market-data-refresh
+  cancel-in-progress: false
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - name: Refresh (one retry)
+        run: node scripts/refresh-daily.js || node scripts/refresh-daily.js
+      - run: node scripts/build-health.js && node scripts/calculate-score.js && node scripts/validate-data.js
+      - name: Commit valid Last Known Good snapshot
+        run: |
+          git config user.name "peibi-data-bot"
+          git config user.email "peibi-data-bot@users.noreply.github.com"
+          git add data history logs
+          git diff --cached --quiet || git commit -m "data: daily refresh"
+          git push
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with: { path: '.' }
+      - uses: actions/deploy-pages@v4
 
