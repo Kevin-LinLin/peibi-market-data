@@ -336,6 +336,20 @@
       "latest_available_checked_at": "2026-09-01T10:11:23.747Z",
       "quality": "automatic verified calculation",
       "status": "available"
+    },
+    {
+      "asset_id": "gold",
+      "metric": "real_yield",
+      "value": 2.44,
+      "unit": "%",
+      "observation_date": "2026-08-31",
+      "published_date": "2026-08-31",
+      "source": "FRED",
+      "source_url": "https://fred.stlouisfed.org/series/DFII10",
+      "retrieved_at": "2026-09-01T23:23:40.655Z",
+      "latest_available_checked_at": "2026-09-01T23:23:40.655Z",
+      "quality": "automatic verified",
+      "status": "available"
     }
   ]
 }

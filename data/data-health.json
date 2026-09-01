@@ -1,16 +1,16 @@
 {
   "schema_version": 1,
-  "last_daily_refresh": "2026-09-01T10:14:09.542Z",
+  "last_daily_refresh": "2026-09-01T23:23:40.727Z",
   "last_weekly_refresh": null,
   "daily_status": "Healthy",
   "weekly_status": "not_run",
-  "generated_at": "2026-09-01T10:14:09.599Z",
+  "generated_at": "2026-09-01T23:23:40.775Z",
   "assets": {
     "nasdaq100": {
       "latest_market_date": "2026-08-31",
       "latest_valuation_date": "2026-07-10",
       "latest_fundamental_date": "2026-07-10",
-      "latest_available_checked_at": "2026-09-01T10:14:09.502Z",
+      "latest_available_checked_at": "2026-09-01T23:23:40.705Z",
       "sla_status": "Healthy",
       "source_status": "available",
       "history_sample_count": 7
@@ -19,7 +19,7 @@
       "latest_market_date": "2026-08-31",
       "latest_valuation_date": "2026-03-31",
       "latest_fundamental_date": "2026-07-10",
-      "latest_available_checked_at": "2026-09-01T10:14:09.533Z",
+      "latest_available_checked_at": "2026-09-01T23:23:40.718Z",
       "sla_status": "Healthy",
       "source_status": "available",
       "history_sample_count": 7
@@ -28,10 +28,10 @@
       "latest_market_date": "2026-09-01",
       "latest_valuation_date": null,
       "latest_fundamental_date": null,
-      "latest_available_checked_at": "2026-09-01T10:14:09.449Z",
+      "latest_available_checked_at": "2026-09-01T23:23:40.671Z",
       "sla_status": "Healthy",
       "source_status": "available",
-      "history_sample_count": 6
+      "history_sample_count": 7
     },
     "csi_a500": {
       "latest_market_date": null,
