@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "last_daily_refresh": null,
+  "last_weekly_refresh": null,
+  "daily_status": "not_run",
+  "weekly_status": "not_run",
+  "generated_at": "2026-09-01T05:26:59.576Z",
+  "assets": {
+    "nasdaq100": {
+      "latest_market_date": "2026-08-27",
+      "latest_valuation_date": "2026-07-10",
+      "latest_fundamental_date": "2026-07-10",
+      "latest_available_checked_at": "2026-08-31T00:00:00.000Z",
+      "sla_status": "Healthy",
+      "source_status": "available",
+      "history_sample_count": 4
+    },
+    "sp500": {
+      "latest_market_date": "2026-08-27",
+      "latest_valuation_date": "2026-03-31",
+      "latest_fundamental_date": "2026-07-10",
+      "latest_available_checked_at": "2026-08-31T00:00:00.000Z",
+      "sla_status": "Healthy",
+      "source_status": "available",
+      "history_sample_count": 4
+    },
+    "gold": {
+      "latest_market_date": "2026-08-31",
+      "latest_valuation_date": null,
+      "latest_fundamental_date": null,
+      "latest_available_checked_at": "2026-08-31T00:00:00.000Z",
+      "sla_status": "Healthy",
+      "source_status": "available",
+      "history_sample_count": 3
+    },
+    "csi_a500": {
+      "latest_market_date": null,
+      "latest_valuation_date": "2026-07-31",
+      "latest_fundamental_date": null,
+      "latest_available_checked_at": "2026-08-31T00:00:00.000Z",
+      "sla_status": "Healthy",
+      "source_status": "available",
+      "history_sample_count": 1
+    },
+    "dividend_lowvol100": {
+      "latest_market_date": null,
+      "latest_valuation_date": "2026-07-31",
+      "latest_fundamental_date": null,
+      "latest_available_checked_at": "2026-08-31T00:00:00.000Z",
+      "sla_status": "Healthy",
+      "source_status": "available",
+      "history_sample_count": 1
+    },
+    "hangseng_tech": {
+      "latest_market_date": null,
+      "latest_valuation_date": "2026-07-31",
+      "latest_fundamental_date": null,
+      "latest_available_checked_at": "2026-08-31T00:00:00.000Z",
+      "sla_status": "Healthy",
+      "source_status": "available",
+      "history_sample_count": 1
+    },
+    "csi_healthcare": {
+      "latest_market_date": null,
+      "latest_valuation_date": null,
+      "latest_fundamental_date": null,
+      "latest_available_checked_at": null,
+      "sla_status": "Warning",
+      "source_status": "core_data_missing",
+      "history_sample_count": 0
+    },
+    "csi_securities": {
+      "latest_market_date": null,
+      "latest_valuation_date": "2026-07-31",
+      "latest_fundamental_date": null,
+      "latest_available_checked_at": "2026-08-31T00:00:00.000Z",
+      "sla_status": "Healthy",
+      "source_status": "available",
+      "history_sample_count": 1
+    }
+  }
+}

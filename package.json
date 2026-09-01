@@ -1,0 +1,15 @@
+{
+  "name": "peibi-market-data",
+  "private": true,
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Public, append-only market data snapshots for Peibi Monthly Allocation.",
+  "scripts": {
+    "validate": "node scripts/validate-data.js",
+    "score": "node scripts/calculate-score.js",
+    "health": "node scripts/build-health.js",
+    "refresh:daily": "node scripts/refresh-daily.js",
+    "refresh:weekly": "node scripts/refresh-weekly.js"
+  },
+  "engines": { "node": ">=20" }
+}

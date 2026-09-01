@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-08-31",
+  "generated_at": "2026-09-01T05:25:58.519Z",
+  "model_version": "production-v1-frozen",
+  "assets": {
+    "nasdaq100": {
+      "score": 50,
+      "investment_status": "中性",
+      "valuation_status": "估值偏贵",
+      "confidence": "Medium",
+      "valuation": 40,
+      "fundamentals": 74,
+      "market_condition": 55,
+      "risk_health": 54,
+      "valuation_context_type": "approximate_band"
+    },
+    "sp500": {
+      "score": 47,
+      "investment_status": "中性",
+      "valuation_status": "估值偏贵",
+      "confidence": "Medium",
+      "valuation": 35,
+      "fundamentals": 66,
+      "market_condition": 51,
+      "risk_health": 65,
+      "valuation_context_type": "approximate_band"
+    },
+    "gold": {
+      "score": 19,
+      "investment_status": "明显偏低",
+      "valuation_status": "明显偏贵",
+      "confidence": "Medium",
+      "components": {
+        "real_yield": 6.77,
+        "usd": 22.44,
+        "price_position": 2.46,
+        "long_term_trend": 47.14,
+        "risk_health": 49.07
+      }
+    },
+    "csi_a500": {
+      "score": 48,
+      "score_type": "fallback",
+      "investment_status": "中性",
+      "valuation_status": "合理",
+      "confidence": "Medium",
+      "valuation_context_type": "approximate_band"
+    },
+    "dividend_lowvol100": {
+      "score": 71,
+      "score_type": "fallback",
+      "investment_status": "偏有吸引力",
+      "valuation_status": "偏便宜",
+      "confidence": "Medium",
+      "valuation_context_type": "approximate_band"
+    },
+    "hangseng_tech": {
+      "score": 42,
+      "score_type": "fallback",
+      "investment_status": "偏低",
+      "valuation_status": "偏贵",
+      "confidence": "Medium",
+      "valuation_context_type": "approximate_band"
+    },
+    "csi_healthcare": {
+      "score": null,
+      "investment_status": "待更新",
+      "valuation_status": "数据待更新",
+      "confidence": "Low"
+    },
+    "csi_securities": {
+      "score": 53,
+      "score_type": "fallback",
+      "investment_status": "中性",
+      "valuation_status": "合理",
+      "confidence": "Medium",
+      "valuation_context_type": "approximate_band"
+    }
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "schema_version": 1,
+  "notes": "Reviewed low-frequency entries are added here with the complete metric schema. Weekly refresh will only accept finite values with source and observation date.",
+  "metrics": []
+}
