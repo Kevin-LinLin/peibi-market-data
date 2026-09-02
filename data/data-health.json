@@ -1,27 +1,29 @@
 {
   "schema_version": 1,
   "last_daily_refresh": "2026-09-01T23:23:40.727Z",
-  "last_weekly_refresh": null,
+  "last_weekly_refresh": "2026-09-02T05:18:21.973Z",
   "daily_status": "Healthy",
-  "weekly_status": "not_run",
-  "generated_at": "2026-09-01T23:23:40.775Z",
+  "weekly_status": "Healthy",
+  "generated_at": "2026-09-02T05:18:22.028Z",
   "assets": {
     "nasdaq100": {
       "latest_market_date": "2026-08-31",
       "latest_valuation_date": "2026-07-10",
       "latest_fundamental_date": "2026-07-10",
-      "latest_available_checked_at": "2026-09-01T23:23:40.705Z",
+      "latest_available_checked_at": "2026-09-02T05:18:09.457Z",
       "sla_status": "Healthy",
       "source_status": "available",
+      "metric_status": {},
       "history_sample_count": 7
     },
     "sp500": {
       "latest_market_date": "2026-08-31",
       "latest_valuation_date": "2026-03-31",
       "latest_fundamental_date": "2026-07-10",
-      "latest_available_checked_at": "2026-09-01T23:23:40.718Z",
+      "latest_available_checked_at": "2026-09-02T05:18:09.619Z",
       "sla_status": "Healthy",
       "source_status": "available",
+      "metric_status": {},
       "history_sample_count": 7
     },
     "gold": {
@@ -31,33 +33,80 @@
       "latest_available_checked_at": "2026-09-01T23:23:40.671Z",
       "sla_status": "Healthy",
       "source_status": "available",
+      "metric_status": {},
       "history_sample_count": 7
     },
     "csi_a500": {
       "latest_market_date": null,
       "latest_valuation_date": "2026-07-31",
       "latest_fundamental_date": null,
-      "latest_available_checked_at": "2026-08-31T00:00:00.000Z",
+      "latest_available_checked_at": "2026-09-02T05:18:11.549Z",
       "sla_status": "Healthy",
-      "source_status": "available",
+      "source_status": "manual_required",
+      "metric_status": {
+        "pb": {
+          "source_status": "source_not_configured",
+          "status": "manual_required",
+          "latest_available_checked_at": null
+        },
+        "dividend_yield": {
+          "source_status": "source_not_configured",
+          "status": "manual_required",
+          "latest_available_checked_at": null
+        },
+        "roe": {
+          "source_status": "source_not_configured",
+          "status": "manual_required",
+          "latest_available_checked_at": null
+        }
+      },
       "history_sample_count": 1
     },
     "dividend_lowvol100": {
       "latest_market_date": null,
       "latest_valuation_date": "2026-07-31",
       "latest_fundamental_date": null,
-      "latest_available_checked_at": "2026-08-31T00:00:00.000Z",
+      "latest_available_checked_at": "2026-09-02T05:18:13.236Z",
       "sla_status": "Healthy",
-      "source_status": "available",
+      "source_status": "manual_required",
+      "metric_status": {
+        "pb": {
+          "source_status": "source_not_configured",
+          "status": "manual_required",
+          "latest_available_checked_at": null
+        },
+        "dividend_yield": {
+          "source_status": "source_not_configured",
+          "status": "manual_required",
+          "latest_available_checked_at": null
+        },
+        "roe": {
+          "source_status": "source_not_configured",
+          "status": "manual_required",
+          "latest_available_checked_at": null
+        }
+      },
       "history_sample_count": 1
     },
     "hangseng_tech": {
       "latest_market_date": null,
       "latest_valuation_date": "2026-07-31",
       "latest_fundamental_date": null,
-      "latest_available_checked_at": "2026-08-31T00:00:00.000Z",
+      "latest_available_checked_at": "2026-09-02T05:18:18.414Z",
       "sla_status": "Healthy",
-      "source_status": "available",
+      "source_status": "manual_required",
+      "metric_status": {
+        "dividend_yield": {
+          "source_status": "source_not_configured",
+          "status": "manual_required",
+          "latest_available_checked_at": null
+        },
+        "earnings_growth": {
+          "source_status": "source_not_configured",
+          "status": "manual_required",
+          "latest_available_checked_at": null
+        }
+      },
       "history_sample_count": 1
     },
     "csi_healthcare": {
@@ -66,16 +115,40 @@
       "latest_fundamental_date": null,
       "latest_available_checked_at": null,
       "sla_status": "Warning",
-      "source_status": "core_data_missing",
+      "source_status": "manual_required",
+      "metric_status": {
+        "pb": {
+          "source_status": "source_not_configured",
+          "status": "manual_required",
+          "latest_available_checked_at": null
+        },
+        "roe": {
+          "source_status": "source_not_configured",
+          "status": "manual_required",
+          "latest_available_checked_at": null
+        }
+      },
       "history_sample_count": 0
     },
     "csi_securities": {
       "latest_market_date": null,
       "latest_valuation_date": "2026-07-31",
       "latest_fundamental_date": null,
-      "latest_available_checked_at": "2026-08-31T00:00:00.000Z",
+      "latest_available_checked_at": "2026-09-02T05:18:21.964Z",
       "sla_status": "Healthy",
-      "source_status": "available",
+      "source_status": "manual_required",
+      "metric_status": {
+        "pb": {
+          "source_status": "source_not_configured",
+          "status": "manual_required",
+          "latest_available_checked_at": null
+        },
+        "roe": {
+          "source_status": "source_not_configured",
+          "status": "manual_required",
+          "latest_available_checked_at": null
+        }
+      },
       "history_sample_count": 1
     }
   }
