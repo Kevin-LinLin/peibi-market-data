@@ -1,40 +1,40 @@
 {
   "schema_version": 1,
-  "last_daily_refresh": "2026-09-01T23:23:40.727Z",
+  "last_daily_refresh": "2026-09-02T23:22:54.705Z",
   "last_weekly_refresh": "2026-09-02T05:18:21.973Z",
   "daily_status": "Healthy",
   "weekly_status": "Healthy",
-  "generated_at": "2026-09-02T05:18:22.028Z",
+  "generated_at": "2026-09-02T23:22:54.766Z",
   "assets": {
     "nasdaq100": {
-      "latest_market_date": "2026-08-31",
+      "latest_market_date": "2026-09-01",
       "latest_valuation_date": "2026-07-10",
       "latest_fundamental_date": "2026-07-10",
-      "latest_available_checked_at": "2026-09-02T05:18:09.457Z",
+      "latest_available_checked_at": "2026-09-02T23:22:54.679Z",
       "sla_status": "Healthy",
       "source_status": "available",
       "metric_status": {},
-      "history_sample_count": 7
+      "history_sample_count": 10
     },
     "sp500": {
-      "latest_market_date": "2026-08-31",
+      "latest_market_date": "2026-09-01",
       "latest_valuation_date": "2026-03-31",
       "latest_fundamental_date": "2026-07-10",
-      "latest_available_checked_at": "2026-09-02T05:18:09.619Z",
+      "latest_available_checked_at": "2026-09-02T23:22:54.696Z",
       "sla_status": "Healthy",
       "source_status": "available",
       "metric_status": {},
-      "history_sample_count": 7
+      "history_sample_count": 10
     },
     "gold": {
-      "latest_market_date": "2026-09-01",
+      "latest_market_date": "2026-09-02",
       "latest_valuation_date": null,
       "latest_fundamental_date": null,
-      "latest_available_checked_at": "2026-09-01T23:23:40.671Z",
+      "latest_available_checked_at": "2026-09-02T23:22:54.653Z",
       "sla_status": "Healthy",
       "source_status": "available",
       "metric_status": {},
-      "history_sample_count": 7
+      "history_sample_count": 9
     },
     "csi_a500": {
       "latest_market_date": null,
