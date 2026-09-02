@@ -23,8 +23,8 @@ export const SOURCES = {
   sp500: {
     price: { mode: 'auto', fred: 'SP500', unit: 'index points', source: 'FRED', source_url: 'https://fred.stlouisfed.org/series/SP500' },
     volatility: { mode: 'derived', from: 'price' }, drawdown: { mode: 'derived', from: 'price' }, trend: { mode: 'derived', from: 'price' },
-    forward_pe: { mode: 'manual', source: 'FactSet Earnings Insight', source_url: 'https://insight.factset.com/earnings-insight' },
-    earnings_growth: { mode: 'manual', source: 'FactSet Earnings Insight', source_url: 'https://insight.factset.com/earnings-insight' }
+    forward_pe: { mode: 'manual', source: 'FactSet S&P 500 Earnings Season Update', source_url: 'https://insight.factset.com/sp-500-earnings-season-update-august-7-2026' },
+    earnings_growth: { mode: 'manual', source: 'FactSet S&P 500 Earnings Season Update', source_url: 'https://insight.factset.com/sp-500-earnings-season-update-august-7-2026' }
   },
   gold: {
     price: { mode: 'auto', url: 'https://api.gold-api.com/price/XAU', unit: 'USD/troy oz', source: 'Gold API', source_url: 'https://api.gold-api.com/price/XAU' },
