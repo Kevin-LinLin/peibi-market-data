@@ -1,40 +1,52 @@
 {
   "schema_version": 1,
-  "last_daily_refresh": "2026-09-02T23:22:54.705Z",
+  "last_daily_refresh": "2026-09-03T23:20:35.048Z",
   "last_weekly_refresh": "2026-09-03T06:12:51.935Z",
   "daily_status": "Healthy",
   "weekly_status": "Healthy",
-  "generated_at": "2026-09-03T06:12:51.993Z",
+  "generated_at": "2026-09-03T23:20:35.105Z",
   "assets": {
     "nasdaq100": {
-      "latest_market_date": "2026-09-01",
+      "latest_market_date": "2026-09-02",
       "latest_valuation_date": "2026-07-10",
       "latest_fundamental_date": "2026-07-10",
-      "latest_available_checked_at": "2026-09-03T06:12:43.952Z",
+      "latest_available_checked_at": "2026-09-03T23:20:35.026Z",
       "sla_status": "Healthy",
-      "source_status": "available",
-      "metric_status": {},
-      "history_sample_count": 10
+      "source_status": "partial",
+      "metric_status": {
+        "pe": {
+          "source_status": "source_failure",
+          "status": "unavailable",
+          "latest_available_checked_at": null
+        }
+      },
+      "history_sample_count": 13
     },
     "sp500": {
-      "latest_market_date": "2026-09-01",
+      "latest_market_date": "2026-09-02",
       "latest_valuation_date": "2026-03-31",
       "latest_fundamental_date": "2026-07-10",
-      "latest_available_checked_at": "2026-09-03T06:12:44.253Z",
+      "latest_available_checked_at": "2026-09-03T23:20:35.039Z",
       "sla_status": "Healthy",
-      "source_status": "available",
-      "metric_status": {},
-      "history_sample_count": 10
+      "source_status": "partial",
+      "metric_status": {
+        "pe": {
+          "source_status": "source_failure",
+          "status": "unavailable",
+          "latest_available_checked_at": null
+        }
+      },
+      "history_sample_count": 13
     },
     "gold": {
-      "latest_market_date": "2026-09-02",
+      "latest_market_date": "2026-09-03",
       "latest_valuation_date": null,
       "latest_fundamental_date": null,
-      "latest_available_checked_at": "2026-09-02T23:22:54.653Z",
+      "latest_available_checked_at": "2026-09-03T23:20:35.005Z",
       "sla_status": "Healthy",
-      "source_status": "available",
+      "source_status": "supervised",
       "metric_status": {},
-      "history_sample_count": 9
+      "history_sample_count": 11
     },
     "csi_a500": {
       "latest_market_date": null,
@@ -42,21 +54,16 @@
       "latest_fundamental_date": null,
       "latest_available_checked_at": "2026-09-03T06:12:46.379Z",
       "sla_status": "Healthy",
-      "source_status": "manual_required",
+      "source_status": "partial",
       "metric_status": {
         "pb": {
-          "source_status": "source_not_configured",
-          "status": "manual_required",
+          "source_status": "source_failure",
+          "status": "unavailable",
           "latest_available_checked_at": null
         },
-        "dividend_yield": {
-          "source_status": "source_not_configured",
-          "status": "manual_required",
-          "latest_available_checked_at": null
-        },
-        "roe": {
-          "source_status": "source_not_configured",
-          "status": "manual_required",
+        "rolling_pe": {
+          "source_status": "source_failure",
+          "status": "unavailable",
           "latest_available_checked_at": null
         }
       },
@@ -68,21 +75,16 @@
       "latest_fundamental_date": null,
       "latest_available_checked_at": "2026-09-03T06:12:48.098Z",
       "sla_status": "Healthy",
-      "source_status": "manual_required",
+      "source_status": "partial",
       "metric_status": {
-        "pb": {
-          "source_status": "source_not_configured",
-          "status": "manual_required",
+        "rolling_pe": {
+          "source_status": "source_failure",
+          "status": "unavailable",
           "latest_available_checked_at": null
         },
         "dividend_yield": {
-          "source_status": "source_not_configured",
-          "status": "manual_required",
-          "latest_available_checked_at": null
-        },
-        "roe": {
-          "source_status": "source_not_configured",
-          "status": "manual_required",
+          "source_status": "source_failure",
+          "status": "unavailable",
           "latest_available_checked_at": null
         }
       },
@@ -94,16 +96,11 @@
       "latest_fundamental_date": null,
       "latest_available_checked_at": "2026-09-03T06:12:49.355Z",
       "sla_status": "Healthy",
-      "source_status": "manual_required",
+      "source_status": "partial",
       "metric_status": {
-        "dividend_yield": {
-          "source_status": "source_not_configured",
-          "status": "manual_required",
-          "latest_available_checked_at": null
-        },
-        "earnings_growth": {
-          "source_status": "source_not_configured",
-          "status": "manual_required",
+        "pe": {
+          "source_status": "source_failure",
+          "status": "unavailable",
           "latest_available_checked_at": null
         }
       },
@@ -115,19 +112,8 @@
       "latest_fundamental_date": null,
       "latest_available_checked_at": null,
       "sla_status": "Warning",
-      "source_status": "manual_required",
-      "metric_status": {
-        "pb": {
-          "source_status": "source_not_configured",
-          "status": "manual_required",
-          "latest_available_checked_at": null
-        },
-        "roe": {
-          "source_status": "source_not_configured",
-          "status": "manual_required",
-          "latest_available_checked_at": null
-        }
-      },
+      "source_status": "core_data_missing",
+      "metric_status": {},
       "history_sample_count": 0
     },
     "csi_securities": {
@@ -136,16 +122,16 @@
       "latest_fundamental_date": null,
       "latest_available_checked_at": "2026-09-03T06:12:51.926Z",
       "sla_status": "Healthy",
-      "source_status": "manual_required",
+      "source_status": "partial",
       "metric_status": {
         "pb": {
-          "source_status": "source_not_configured",
-          "status": "manual_required",
+          "source_status": "source_failure",
+          "status": "unavailable",
           "latest_available_checked_at": null
         },
-        "roe": {
-          "source_status": "source_not_configured",
-          "status": "manual_required",
+        "rolling_pe": {
+          "source_status": "source_failure",
+          "status": "unavailable",
           "latest_available_checked_at": null
         }
       },
