@@ -66,33 +66,73 @@ jobs:
           PY
           }
 
-          extract_pdf() {
-            local source="$1" file="$2" http="$3" pattern="$4"
+          parse_csi() {
+            local source="$1" file="$2" http="$3" metric_spec="$4"
             local text_file="${file}.txt"
-            if [ "$http" != "200" ]; then
-              printf '%s\t%s\t%s\tFAIL\t—\t—\tPARSE_FAIL\n' "$source" "PDF diagnostics" "$http" >> "$results"
-              return
+            if [ "$http" = "200" ] && pdftotext -layout "$file" "$text_file"; then
+              python3 - "$source" "$http" "$metric_spec" "$text_file" >> "$results" <<'PY'
+          import re, sys
+          source, http, metric_spec, path = sys.argv[1:]
+          text = open(path, encoding="utf-8", errors="ignore").read()
+          # CSI factsheets print the observation date in the document header.
+          header = text[:800]
+          date_match = re.search(r"(20\d{2})年\s*(\d{1,2})月\s*(\d{1,2})日", header)
+          date = None if not date_match else "{}-{:02d}-{:02d}".format(*map(int, date_match.groups()))
+          for item in metric_spec.split("|"):
+              metric, label, unit = item.split("~")
+              match = re.search(re.escape(label) + r"\s+([0-9]*\.?[0-9]+|--|—)", text)
+              if not match:
+                  result, value = "PARSE_FAIL", "—"
+              elif match.group(1) in ("--", "—"):
+                  result, value = "DATA_NOT_AVAILABLE", "null"
+              elif not date:
+                  result, value = "PARSE_FAIL", match.group(1) + unit
+              else:
+                  result, value = "PASS", match.group(1) + unit
+              print(f"{source}\t{metric}\t{http}\tPASS\t{value}\t{date or '—'}\t{result}")
+          PY
+            else
+              IFS='|' read -ra entries <<< "$metric_spec"
+              for entry in "${entries[@]}"; do
+                IFS='~' read -r metric _ _ <<< "$entry"
+                printf '%s\t%s\t%s\tFAIL\t—\t—\tPARSE_FAIL\n' "$source" "$metric" "$http" >> "$results"
+              done
             fi
-            if ! pdftotext -layout "$file" "$text_file"; then
-              printf '%s\t%s\t%s\tFAIL\t—\t—\tPARSE_FAIL\n' "$source" "PDF diagnostics" "$http" >> "$results"
-              return
+          }
+
+          parse_hstech() {
+            local source="$1" file="$2" http="$3"
+            local text_file="${file}.txt"
+            if [ "$http" = "200" ] && pdftotext -layout "$file" "$text_file"; then
+              python3 - "$source" "$http" "$text_file" >> "$results" <<'PY'
+          import re, sys
+          source, http, path = sys.argv[1:]
+          text = open(path, encoding="utf-8", errors="ignore").read()
+          # Do not infer a date from the workflow, download, launch or base date.
+          date_match = re.search(r"(?:All data|Data|Index information)\s+(?:as at|as of)\s+(\d{1,2}\s+[A-Z][a-z]{2}\s+20\d{2})", text, re.I)
+          row = re.search(r"\bHSTECH\s+([0-9.]+)\s+([0-9.]+)", text)
+          if not row:
+              result, value = "PARSE_FAIL", "—"
+          elif not date_match:
+              result, value = "PARSE_FAIL", row.group(2) + "x"
+          elif row.group(2) in ("--", "—"):
+              result, value = "DATA_NOT_AVAILABLE", "null"
+          else:
+              result, value = "PASS", row.group(2) + "x"
+          print(f"{source}\tPE\t{http}\tPASS\t{value}\t{date_match.group(1) if date_match else '—'}\t{result}")
+          PY
+            else
+              printf '%s\tPE\t%s\tFAIL\t—\t—\tPARSE_FAIL\n' "$source" "$http" >> "$results"
             fi
-            printf '%s\t%s\t%s\tPASS\t—\t—\tPARSE_FAIL\n' "$source" "PDF diagnostics" "$http" >> "$results"
-            echo ""
-            echo "===== ${source}: keyword context ====="
-            if ! grep --text --line-number --ignore-case --extended-regexp --context=3 "$pattern" "$text_file"; then
-              echo "(No matching text for the requested keywords.)"
-            fi
-            echo "===== end ${source} ====="
           }
 
           qndx="$work_dir/qndx.html"; status="$(fetch 'https://www.ssga.com/us/en/individual/etfs/state-street-spdr-portfolio-nasdaq-100-etf-qndx' "$qndx")"; emit_html_pe "$qndx" 'State Street QNDX' 'PE' "$status" >> "$results"
           spy="$work_dir/spy.html"; status="$(fetch 'https://www.ssga.com/us/en/individual/etfs/state-street-spdr-sp-500-etf-trust-spy' "$spy")"; emit_html_pe "$spy" 'State Street SPY' 'PE' "$status" >> "$results"
 
-          a500="$work_dir/a500.pdf"; status="$(fetch 'https://oss-ch.csindex.com.cn/static/html/csindex/public/uploads/indices/detail/files/zh_CN/000510factsheet.pdf' "$a500")"; extract_pdf 'CSI A500 factsheet' "$a500" "$status" 'PE|PB|市盈率|市净率|日期|截至|as of'
-          dividend="$work_dir/dividend.pdf"; status="$(fetch 'https://oss-ch.csindex.com.cn/static/html/csindex/public/uploads/indices/detail/files/zh_CN/930955factsheet.pdf' "$dividend")"; extract_pdf 'CSI 红利低波100 factsheet' "$dividend" "$status" 'PE|Dividend Yield|市盈率|股息率|日期|截至|as of'
-          securities="$work_dir/securities.pdf"; status="$(fetch 'https://oss-ch.csindex.com.cn/static/html/csindex/public/uploads/indices/detail/files/zh_CN/399975factsheet.pdf' "$securities")"; extract_pdf 'CSI 证券 factsheet' "$securities" "$status" 'PE|PB|市盈率|市净率|日期|截至|as of'
-          hstech="$work_dir/hstech.pdf"; status="$(fetch 'https://www.hsi.com.hk/static/uploads/contents/en/dl_centre/factsheets/hsteche.pdf' "$hstech")"; extract_pdf 'Hang Seng TECH factsheet' "$hstech" "$status" 'P/E|Date|As of|截至日期'
+          a500="$work_dir/a500.pdf"; status="$(fetch 'https://oss-ch.csindex.com.cn/static/html/csindex/public/uploads/indices/detail/files/zh_CN/000510factsheet.pdf' "$a500")"; parse_csi 'CSI A500 factsheet' "$a500" "$status" 'PE~滚动市盈率~x|PB~市净率~x'
+          dividend="$work_dir/dividend.pdf"; status="$(fetch 'https://oss-ch.csindex.com.cn/static/html/csindex/public/uploads/indices/detail/files/zh_CN/930955factsheet.pdf' "$dividend")"; parse_csi 'CSI 红利低波100 factsheet' "$dividend" "$status" 'PE~滚动市盈率~x|Dividend Yield~股息率~%'
+          securities="$work_dir/securities.pdf"; status="$(fetch 'https://oss-ch.csindex.com.cn/static/html/csindex/public/uploads/indices/detail/files/zh_CN/399975factsheet.pdf' "$securities")"; parse_csi 'CSI 证券 factsheet' "$securities" "$status" 'PE~滚动市盈率~x|PB~市净率~x'
+          hstech="$work_dir/hstech.pdf"; status="$(fetch 'https://www.hsi.com.hk/static/uploads/contents/en/dl_centre/factsheets/hsteche.pdf' "$hstech")"; parse_hstech 'Hang Seng TECH factsheet' "$hstech" "$status"
 
           {
             echo '## Source probe V2'
