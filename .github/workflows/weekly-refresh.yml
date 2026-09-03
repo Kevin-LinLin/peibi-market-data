@@ -1,27 +1,39 @@
 name: Weekly valuation source check
+
 on:
   schedule:
     - cron: '30 21 * * 0'
   workflow_dispatch:
+
 permissions:
   contents: write
   pages: write
   id-token: write
+
 concurrency:
   group: peibi-market-data-refresh
   cancel-in-progress: false
+
 jobs:
   refresh:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-node@v4
-        with: { node-version: 20 }
+        with:
+          node-version: 20
+
       - name: Install PDF text extractor
         run: sudo apt-get update && sudo apt-get install --yes poppler-utils
+
       - name: Check valuation sources (one retry)
         run: node scripts/refresh-weekly.js || node scripts/refresh-weekly.js
-      - run: node scripts/build-health.js && node scripts/calculate-score.js && node scripts/validate-data.js
+
+      - name: Build health, calculate score and validate
+        run: node scripts/build-health.js && node scripts/calculate-score.js && node scripts/validate-data.js
+
       - name: Commit valid Last Known Good snapshot
         run: |
           git config user.name "peibi-data-bot"
@@ -29,7 +41,11 @@ jobs:
           git add data history logs
           git diff --cached --quiet || git commit -m "data: weekly source check"
           git push
+
       - uses: actions/configure-pages@v5
+
       - uses: actions/upload-pages-artifact@v3
-      - with:  path: '.'
+        with:
+          path: '.'
+
       - uses: actions/deploy-pages@v4
