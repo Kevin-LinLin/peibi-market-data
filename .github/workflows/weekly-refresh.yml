@@ -31,5 +31,5 @@ jobs:
           git push
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
-      - with: path: '.'
+      - with:  path: '.'
       - uses: actions/deploy-pages@v4
