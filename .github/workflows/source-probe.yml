@@ -1,0 +1,128 @@
+name: Source probe
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    name: Read-only source probe
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify read-only starting state
+        run: test -z "$(git status --porcelain)"
+
+      - name: Probe public valuation sources
+        shell: bash
+        run: |
+          set -Eeuo pipefail
+          work_dir="$RUNNER_TEMP/source-probe"
+          mkdir -p "$work_dir"
+          results="$work_dir/results.tsv"
+          : > "$results"
+
+          fetch() {
+            local label="$1" url="$2" output="$3" status
+            status="$(curl --silent --show-error --location \
+              --retry 1 --retry-all-errors --connect-timeout 15 --max-time 45 \
+              --user-agent 'peibi-market-data-source-probe/1.0' \
+              --output "$output" --write-out '%{http_code}' "$url" || true)"
+            printf '%s' "$status"
+          }
+
+          emit_html_pe() {
+            python3 - "$1" "$2" "$3" "$4" <<'PY'
+          import re, sys
+          from html import unescape
+          from html.parser import HTMLParser
+          path, source, metric, http = sys.argv[1:]
+          class Extractor(HTMLParser):
+              def __init__(self): super().__init__(); self.parts=[]
+              def handle_data(self, data): self.parts.append(data)
+          try:
+              p=Extractor(); p.feed(open(path, encoding='utf-8', errors='ignore').read())
+              text=re.sub(r'\s+', ' ', unescape(' '.join(p.parts)))
+              section=text[text.find('Index Characteristics as of'):]
+              date=re.search(r'Index Characteristics as of\s+([A-Z][a-z]{2}\s+\d{1,2}\s+\d{4})', section)
+              value=re.search(r'Price/Earnings\b.{0,900}?\b(\d+\.\d+)\b', section)
+              if http == '200' and date and value:
+                  print(f'{source}\t{metric}\t{http}\t{value.group(1)}x\t{date.group(1)}\tPASS')
+              else:
+                  print(f'{source}\t{metric}\t{http or "000"}\t—\t—\tFAIL')
+          except Exception:
+              print(f'{source}\t{metric}\t{http or "000"}\t—\t—\tFAIL')
+          PY
+          }
+
+          emit_csi() {
+            local file="$1" source="$2" metric="$3" http="$4" label="$5"
+            pdftotext -layout "$file" "$file.txt" 2>/dev/null || true
+            python3 - "$file.txt" "$source" "$metric" "$http" "$label" <<'PY'
+          import re, sys
+          path, source, metric, http, label = sys.argv[1:]
+          try:
+              text=open(path, encoding='utf-8', errors='ignore').read()
+              dates=[tuple(map(int, x)) for x in re.findall(r'(\d{4})年\s*(\d{1,2})月\s*(\d{1,2})日', text)]
+              date='—' if not dates else f'{max(dates)[0]:04d}-{max(dates)[1]:02d}-{max(dates)[2]:02d}'
+              m=re.search(label+r'\s*([0-9]+(?:\.[0-9]+)?)', text)
+              if http == '200' and m and date != '—':
+                  unit='%' if metric == 'Dividend Yield' else 'x'
+                  print(f'{source}\t{metric}\t{http}\t{m.group(1)}{unit}\t{date}\tPASS')
+              else:
+                  print(f'{source}\t{metric}\t{http or "000"}\t—\t—\tFAIL')
+          except Exception:
+              print(f'{source}\t{metric}\t{http or "000"}\t—\t—\tFAIL')
+          PY
+          }
+
+          emit_hstech() {
+            local file="$1" http="$2"
+            pdftotext -layout "$file" "$file.txt" 2>/dev/null || true
+            python3 - "$file.txt" "$http" <<'PY'
+          import re, sys
+          path, http = sys.argv[1:]
+          try:
+              text=open(path, encoding='utf-8', errors='ignore').read()
+              date=re.search(r'All data as at\s+(\d{1,2}\s+[A-Z][a-z]{2}\s+\d{4})', text)
+              row=re.search(r'HSTECH\s+[\d.]+\s+[\d.]+\s+[\d.]+\s+[\d.]+\s+([\d.]+)', text)
+              if http == '200' and date and row:
+                  print(f'Hang Seng TECH factsheet\tPE\t{http}\t{row.group(1)}x\t{date.group(1)}\tPASS')
+              else:
+                  print(f'Hang Seng TECH factsheet\tPE\t{http or "000"}\t—\t—\tFAIL')
+          except Exception:
+              print(f'Hang Seng TECH factsheet\tPE\t{http or "000"}\t—\t—\tFAIL')
+          PY
+          }
+
+          qndx="$work_dir/qndx.html"; status="$(fetch QNDX 'https://www.ssga.com/us/en/individual/etfs/state-street-spdr-portfolio-nasdaq-100-etf-qndx' "$qndx")"; emit_html_pe "$qndx" 'State Street QNDX' 'PE' "$status" >> "$results"
+          spy="$work_dir/spy.html"; status="$(fetch SPY 'https://www.ssga.com/us/en/individual/etfs/state-street-spdr-sp-500-etf-trust-spy' "$spy")"; emit_html_pe "$spy" 'State Street SPY' 'PE' "$status" >> "$results"
+          a500="$work_dir/a500.pdf"; status="$(fetch CSI-A500 'https://oss-ch.csindex.com.cn/static/html/csindex/public/uploads/indices/detail/files/zh_CN/000510factsheet.pdf' "$a500")"; emit_csi "$a500" 'CSI A500 factsheet' 'PE' "$status" '滚动市盈率' >> "$results"; emit_csi "$a500" 'CSI A500 factsheet' 'PB' "$status" '市净率' >> "$results"
+          dividend="$work_dir/dividend.pdf"; status="$(fetch CSI-Dividend 'https://oss-ch.csindex.com.cn/static/html/csindex/public/uploads/indices/detail/files/zh_CN/930955factsheet.pdf' "$dividend")"; emit_csi "$dividend" 'CSI 红利低波100 factsheet' 'Dividend Yield' "$status" '股息率' >> "$results"; emit_csi "$dividend" 'CSI 红利低波100 factsheet' 'PE' "$status" '滚动市盈率' >> "$results"
+          securities="$work_dir/securities.pdf"; status="$(fetch CSI-Securities 'https://oss-ch.csindex.com.cn/static/html/csindex/public/uploads/indices/detail/files/zh_CN/399975factsheet.pdf' "$securities")"; emit_csi "$securities" 'CSI 证券 factsheet' 'PB' "$status" '市净率' >> "$results"; emit_csi "$securities" 'CSI 证券 factsheet' 'PE' "$status" '滚动市盈率' >> "$results"
+          hstech="$work_dir/hstech.pdf"; status="$(fetch HSTECH 'https://www.hsi.com.hk/static/uploads/contents/en/dl_centre/factsheets/hsteche.pdf' "$hstech")"; emit_hstech "$hstech" "$status" >> "$results"
+
+          {
+            echo '## Source probe'
+            echo
+            echo '| Source | Metric | HTTP | Value | Observation Date | Parse | Result |'
+            echo '|---|---|---:|---:|---|---|---|'
+            while IFS=$'\t' read -r source metric http value date result; do
+              echo "| ${source} | ${metric} | ${http} | ${value} | ${date} | ${result} | ${result} |"
+            done < "$results"
+          } | tee -a "$GITHUB_STEP_SUMMARY"
+
+          cat "$results"
+          if grep -q $'\tFAIL$' "$results"; then
+            echo 'At least one core source failed.' >&2
+            exit 1
+          fi
+
+      - name: Verify read-only ending state
+        if: always()
+        run: test -z "$(git status --porcelain)"
