@@ -67,7 +67,8 @@ jobs:
           }
 
           extract_pdf() {
-            local source="$1" file="$2" http="$3" pattern="$4" text_file="$file.txt"
+            local source="$1" file="$2" http="$3" pattern="$4"
+            local text_file="${file}.txt"
             if [ "$http" != "200" ]; then
               printf '%s\t%s\t%s\tFAIL\t—\t—\tPARSE_FAIL\n' "$source" "PDF diagnostics" "$http" >> "$results"
               return
