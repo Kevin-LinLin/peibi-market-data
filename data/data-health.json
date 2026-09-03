@@ -1,16 +1,16 @@
 {
   "schema_version": 1,
   "last_daily_refresh": "2026-09-02T23:22:54.705Z",
-  "last_weekly_refresh": "2026-09-02T05:18:21.973Z",
+  "last_weekly_refresh": "2026-09-03T06:12:51.935Z",
   "daily_status": "Healthy",
   "weekly_status": "Healthy",
-  "generated_at": "2026-09-02T23:22:54.766Z",
+  "generated_at": "2026-09-03T06:12:51.993Z",
   "assets": {
     "nasdaq100": {
       "latest_market_date": "2026-09-01",
       "latest_valuation_date": "2026-07-10",
       "latest_fundamental_date": "2026-07-10",
-      "latest_available_checked_at": "2026-09-02T23:22:54.679Z",
+      "latest_available_checked_at": "2026-09-03T06:12:43.952Z",
       "sla_status": "Healthy",
       "source_status": "available",
       "metric_status": {},
@@ -20,7 +20,7 @@
       "latest_market_date": "2026-09-01",
       "latest_valuation_date": "2026-03-31",
       "latest_fundamental_date": "2026-07-10",
-      "latest_available_checked_at": "2026-09-02T23:22:54.696Z",
+      "latest_available_checked_at": "2026-09-03T06:12:44.253Z",
       "sla_status": "Healthy",
       "source_status": "available",
       "metric_status": {},
@@ -40,7 +40,7 @@
       "latest_market_date": null,
       "latest_valuation_date": "2026-07-31",
       "latest_fundamental_date": null,
-      "latest_available_checked_at": "2026-09-02T05:18:11.549Z",
+      "latest_available_checked_at": "2026-09-03T06:12:46.379Z",
       "sla_status": "Healthy",
       "source_status": "manual_required",
       "metric_status": {
@@ -66,7 +66,7 @@
       "latest_market_date": null,
       "latest_valuation_date": "2026-07-31",
       "latest_fundamental_date": null,
-      "latest_available_checked_at": "2026-09-02T05:18:13.236Z",
+      "latest_available_checked_at": "2026-09-03T06:12:48.098Z",
       "sla_status": "Healthy",
       "source_status": "manual_required",
       "metric_status": {
@@ -92,7 +92,7 @@
       "latest_market_date": null,
       "latest_valuation_date": "2026-07-31",
       "latest_fundamental_date": null,
-      "latest_available_checked_at": "2026-09-02T05:18:18.414Z",
+      "latest_available_checked_at": "2026-09-03T06:12:49.355Z",
       "sla_status": "Healthy",
       "source_status": "manual_required",
       "metric_status": {
@@ -134,7 +134,7 @@
       "latest_market_date": null,
       "latest_valuation_date": "2026-07-31",
       "latest_fundamental_date": null,
-      "latest_available_checked_at": "2026-09-02T05:18:21.964Z",
+      "latest_available_checked_at": "2026-09-03T06:12:51.926Z",
       "sla_status": "Healthy",
       "source_status": "manual_required",
       "metric_status": {

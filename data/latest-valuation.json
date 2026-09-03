@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-02T05:18:21.964Z",
+  "updated_at": "2026-09-03T06:12:51.926Z",
   "metrics": [
     {
       "asset_id": "csi_a500",
@@ -11,8 +11,8 @@
       "published_date": "2026-07-31",
       "source": "China Securities Index factsheet",
       "source_url": "https://oss-ch.csindex.com.cn/static/html/csindex/public/uploads/indices/detail/files/zh_CN/000510factsheet.pdf",
-      "retrieved_at": "2026-09-02T05:18:11.549Z",
-      "latest_available_checked_at": "2026-09-02T05:18:11.549Z",
+      "retrieved_at": "2026-09-03T06:12:46.379Z",
+      "latest_available_checked_at": "2026-09-03T06:12:46.379Z",
       "quality": "official current snapshot",
       "status": "available"
     },
@@ -25,8 +25,8 @@
       "published_date": "2026-07-31",
       "source": "China Securities Index factsheet",
       "source_url": "https://oss-ch.csindex.com.cn/static/html/csindex/public/uploads/indices/detail/files/zh_CN/399975factsheet.pdf",
-      "retrieved_at": "2026-09-02T05:18:21.964Z",
-      "latest_available_checked_at": "2026-09-02T05:18:21.964Z",
+      "retrieved_at": "2026-09-03T06:12:51.926Z",
+      "latest_available_checked_at": "2026-09-03T06:12:51.926Z",
       "quality": "official current snapshot",
       "status": "available"
     },
@@ -39,8 +39,8 @@
       "published_date": "2026-07-31",
       "source": "China Securities Index factsheet",
       "source_url": "https://oss-ch.csindex.com.cn/static/html/csindex/public/uploads/indices/detail/files/zh_CN/930955factsheet.pdf",
-      "retrieved_at": "2026-09-02T05:18:13.236Z",
-      "latest_available_checked_at": "2026-09-02T05:18:13.236Z",
+      "retrieved_at": "2026-09-03T06:12:48.098Z",
+      "latest_available_checked_at": "2026-09-03T06:12:48.098Z",
       "quality": "official current snapshot",
       "status": "available"
     },
@@ -53,8 +53,8 @@
       "published_date": "2026-07-31",
       "source": "Hang Seng Indexes factsheet",
       "source_url": "https://www.hsi.com.hk/static/uploads/contents/en/dl_centre/factsheets/hsteche.pdf",
-      "retrieved_at": "2026-09-02T05:18:18.414Z",
-      "latest_available_checked_at": "2026-09-02T05:18:18.414Z",
+      "retrieved_at": "2026-09-03T06:12:49.355Z",
+      "latest_available_checked_at": "2026-09-03T06:12:49.355Z",
       "quality": "official current snapshot",
       "status": "available"
     },
@@ -67,8 +67,8 @@
       "published_date": "2026-07-10",
       "source": "Nasdaq Index Insights / FactSet",
       "source_url": "https://www.nasdaq.com/articles/global-indexes/biweekly-investment-insights-earnings-remain-the-clear-driver-for-equity-returns",
-      "retrieved_at": "2026-09-02T05:18:09.457Z",
-      "latest_available_checked_at": "2026-09-02T05:18:09.457Z",
+      "retrieved_at": "2026-09-03T06:12:43.952Z",
+      "latest_available_checked_at": "2026-09-03T06:12:43.952Z",
       "quality": "reliable manual monthly entry",
       "status": "available"
     },
@@ -81,8 +81,8 @@
       "published_date": "2026-07-10",
       "source": "Nasdaq Index Insights / FactSet",
       "source_url": "https://www.nasdaq.com/articles/global-indexes/biweekly-investment-insights-earnings-remain-the-clear-driver-for-equity-returns",
-      "retrieved_at": "2026-09-02T05:18:07.411Z",
-      "latest_available_checked_at": "2026-09-02T05:18:07.411Z",
+      "retrieved_at": "2026-09-03T06:12:40.818Z",
+      "latest_available_checked_at": "2026-09-03T06:12:40.818Z",
       "quality": "reliable manual monthly entry",
       "status": "available"
     },
@@ -109,8 +109,8 @@
       "published_date": "2026-07-10",
       "source": "Nasdaq Index Insights / FactSet",
       "source_url": "https://www.nasdaq.com/articles/global-indexes/biweekly-investment-insights-earnings-remain-the-clear-driver-for-equity-returns",
-      "retrieved_at": "2026-09-02T05:18:09.619Z",
-      "latest_available_checked_at": "2026-09-02T05:18:09.619Z",
+      "retrieved_at": "2026-09-03T06:12:44.253Z",
+      "latest_available_checked_at": "2026-09-03T06:12:44.253Z",
       "quality": "reliable manual monthly entry",
       "status": "available"
     },
@@ -123,8 +123,8 @@
       "published_date": "2026-03-31",
       "source": "Nasdaq Global Index Investment Insights",
       "source_url": "https://www.nasdaq.com/docs/global-markets-dashboard-march-2026",
-      "retrieved_at": "2026-09-02T05:18:09.585Z",
-      "latest_available_checked_at": "2026-09-02T05:18:09.585Z",
+      "retrieved_at": "2026-09-03T06:12:44.171Z",
+      "latest_available_checked_at": "2026-09-03T06:12:44.171Z",
       "quality": "reliable manual monthly entry",
       "status": "available"
     },
