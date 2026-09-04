@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "as_of": "2026-08-31",
-  "generated_at": "2026-09-04T09:50:27.224Z",
+  "generated_at": "2026-09-04T23:05:46.870Z",
   "model_version": "production-v1-simplified-valuation",
   "assets": {
     "nasdaq100": {
@@ -11,7 +11,7 @@
       "confidence": "Low",
       "valuation": 50,
       "fundamentals": null,
-      "market_condition": 57,
+      "market_condition": 56,
       "risk_health": 54,
       "valuation_context_type": "limited_history_percentile",
       "score_type": "simplified_valuation",
@@ -38,7 +38,7 @@
       "confidence": "Low",
       "valuation": 50,
       "fundamentals": null,
-      "market_condition": 53,
+      "market_condition": 51,
       "risk_health": 65,
       "valuation_context_type": "limited_history_percentile",
       "score_type": "simplified_valuation",
