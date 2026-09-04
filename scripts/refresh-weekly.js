@@ -51,10 +51,19 @@ function parseCsiFactsheet(text, label) {
 }
 
 function parseHsTechFactsheet(text) {
-  const rawDate = text.match(/(?:All data|Data|Index information|All Information)\s+(?:as at|as of)\s+(\d{1,2}\s+[A-Z][a-z]{2}\s+20\d{2})/i)?.[1] || text.match(/(?:as at|as of)\s+(\d{1,2}\s+[A-Z][a-z]{2}\s+20\d{2})/i)?.[1];
-  const row = text.match(/\bHSTECH\s+([0-9.]+)\s+([0-9.]+)/);
-  const date = isoFromEnglishDate(rawDate);
-  return row && row[2] !== '--' && row[2] !== '—' && date ? { value: Number(row[2]), observation_date: date } : null;
+  const lines = text.split(/\r?\n/);
+  const headerIndex = lines.findIndex(line => /Dividend Yield\s*\(%\)\s+PE Ratio\s*\(Times\)/i.test(line));
+  const row = headerIndex >= 0
+    ? lines.slice(headerIndex + 1, headerIndex + 6).find(line => /\bHSTECH\b/.test(line))
+    : null;
+  const cells = row?.slice(row.indexOf('HSTECH') + 'HSTECH'.length).match(/(?:\d+(?:\.\d+)?|--|—)/g);
+  const pe = cells?.[1]; // Dividend Yield is the first numeric column; PE Ratio is the second.
+  const dateMatch = text.match(/\bAll data\s+as at\s+(\d{1,2})\s+([A-Z][a-z]{2})\s+(20\d{2})\b/i);
+  const date = dateMatch && months[dateMatch[2]]
+    ? `${dateMatch[3]}-${months[dateMatch[2]]}-${dateMatch[1].padStart(2, '0')}`
+    : null;
+  const value = Number(pe);
+  return Number.isFinite(value) && pe !== '--' && pe !== '—' && date ? { value, observation_date: date } : null;
 }
 
 async function parseMetric(asset, metric, config) {
