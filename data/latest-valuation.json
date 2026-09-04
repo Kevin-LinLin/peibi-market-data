@@ -1,7 +1,35 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-03T06:12:51.926Z",
+  "updated_at": "2026-09-04T05:29:12.306Z",
   "metrics": [
+    {
+      "asset_id": "csi_a500",
+      "metric": "pb",
+      "value": 1.64,
+      "unit": "x",
+      "observation_date": "2026-08-31",
+      "published_date": "2026-08-31",
+      "source": "China Securities Index A500 factsheet",
+      "source_url": "https://oss-ch.csindex.com.cn/static/html/csindex/public/uploads/indices/detail/files/zh_CN/000510factsheet.pdf",
+      "retrieved_at": "2026-09-04T05:29:04.248Z",
+      "latest_available_checked_at": "2026-09-04T05:29:04.248Z",
+      "quality": "official parsed source",
+      "status": "available"
+    },
+    {
+      "asset_id": "csi_a500",
+      "metric": "rolling_pe",
+      "value": 16.61,
+      "unit": "x",
+      "observation_date": "2026-08-31",
+      "published_date": "2026-08-31",
+      "source": "China Securities Index A500 factsheet",
+      "source_url": "https://oss-ch.csindex.com.cn/static/html/csindex/public/uploads/indices/detail/files/zh_CN/000510factsheet.pdf",
+      "retrieved_at": "2026-09-04T05:29:05.712Z",
+      "latest_available_checked_at": "2026-09-04T05:29:05.712Z",
+      "quality": "official parsed source",
+      "status": "available"
+    },
     {
       "asset_id": "csi_a500",
       "metric": "trailing_pe",
@@ -14,6 +42,34 @@
       "retrieved_at": "2026-09-03T06:12:46.379Z",
       "latest_available_checked_at": "2026-09-03T06:12:46.379Z",
       "quality": "official current snapshot",
+      "status": "available"
+    },
+    {
+      "asset_id": "csi_securities",
+      "metric": "pb",
+      "value": 1.17,
+      "unit": "x",
+      "observation_date": "2026-08-31",
+      "published_date": "2026-08-31",
+      "source": "China Securities Index Securities factsheet",
+      "source_url": "https://oss-ch.csindex.com.cn/static/html/csindex/public/uploads/indices/detail/files/zh_CN/399975factsheet.pdf",
+      "retrieved_at": "2026-09-04T05:29:11.078Z",
+      "latest_available_checked_at": "2026-09-04T05:29:11.078Z",
+      "quality": "official parsed source",
+      "status": "available"
+    },
+    {
+      "asset_id": "csi_securities",
+      "metric": "rolling_pe",
+      "value": 15.46,
+      "unit": "x",
+      "observation_date": "2026-08-31",
+      "published_date": "2026-08-31",
+      "source": "China Securities Index Securities factsheet",
+      "source_url": "https://oss-ch.csindex.com.cn/static/html/csindex/public/uploads/indices/detail/files/zh_CN/399975factsheet.pdf",
+      "retrieved_at": "2026-09-04T05:29:12.305Z",
+      "latest_available_checked_at": "2026-09-04T05:29:12.305Z",
+      "quality": "official parsed source",
       "status": "available"
     },
     {
@@ -32,6 +88,34 @@
     },
     {
       "asset_id": "dividend_lowvol100",
+      "metric": "dividend_yield",
+      "value": 4.6,
+      "unit": "%",
+      "observation_date": "2026-08-31",
+      "published_date": "2026-08-31",
+      "source": "China Securities Index Dividend Low Volatility 100 factsheet",
+      "source_url": "https://oss-ch.csindex.com.cn/static/html/csindex/public/uploads/indices/detail/files/zh_CN/930955factsheet.pdf",
+      "retrieved_at": "2026-09-04T05:29:07.920Z",
+      "latest_available_checked_at": "2026-09-04T05:29:07.920Z",
+      "quality": "official parsed source",
+      "status": "available"
+    },
+    {
+      "asset_id": "dividend_lowvol100",
+      "metric": "rolling_pe",
+      "value": 8.85,
+      "unit": "x",
+      "observation_date": "2026-08-31",
+      "published_date": "2026-08-31",
+      "source": "China Securities Index Dividend Low Volatility 100 factsheet",
+      "source_url": "https://oss-ch.csindex.com.cn/static/html/csindex/public/uploads/indices/detail/files/zh_CN/930955factsheet.pdf",
+      "retrieved_at": "2026-09-04T05:29:06.936Z",
+      "latest_available_checked_at": "2026-09-04T05:29:06.936Z",
+      "quality": "official parsed source",
+      "status": "available"
+    },
+    {
+      "asset_id": "dividend_lowvol100",
       "metric": "trailing_pe",
       "value": 8.9,
       "unit": "x",
@@ -42,6 +126,20 @@
       "retrieved_at": "2026-09-03T06:12:48.098Z",
       "latest_available_checked_at": "2026-09-03T06:12:48.098Z",
       "quality": "official current snapshot",
+      "status": "available"
+    },
+    {
+      "asset_id": "hangseng_tech",
+      "metric": "pe",
+      "value": 29.76,
+      "unit": "x",
+      "observation_date": "2026-07-31",
+      "published_date": "2026-07-31",
+      "source": "Hang Seng TECH Index factsheet",
+      "source_url": "https://www.hsi.com.hk/static/uploads/contents/en/dl_centre/factsheets/hsteche.pdf",
+      "retrieved_at": "2026-09-04T05:29:09.333Z",
+      "latest_available_checked_at": "2026-09-04T05:29:09.333Z",
+      "quality": "official parsed source",
       "status": "available"
     },
     {
@@ -101,6 +199,20 @@
       "status": "available"
     },
     {
+      "asset_id": "nasdaq100",
+      "metric": "pe",
+      "value": 30.2,
+      "unit": "x",
+      "observation_date": "2026-09-02",
+      "published_date": "2026-09-02",
+      "source": "State Street SPDR Portfolio Nasdaq-100 ETF (QNDX)",
+      "source_url": "https://www.ssga.com/us/en/individual/etfs/state-street-spdr-portfolio-nasdaq-100-etf-qndx",
+      "retrieved_at": "2026-09-04T05:29:02.054Z",
+      "latest_available_checked_at": "2026-09-04T05:29:02.054Z",
+      "quality": "official parsed source",
+      "status": "available"
+    },
+    {
       "asset_id": "sp500",
       "metric": "earnings_growth",
       "value": 32,
@@ -140,6 +252,20 @@
       "retrieved_at": "2026-08-31T00:00:00.000Z",
       "latest_available_checked_at": "2026-08-31T00:00:00.000Z",
       "quality": "approximate historical band",
+      "status": "available"
+    },
+    {
+      "asset_id": "sp500",
+      "metric": "pe",
+      "value": 24.97,
+      "unit": "x",
+      "observation_date": "2026-09-02",
+      "published_date": "2026-09-02",
+      "source": "State Street SPDR S&P 500 ETF Trust (SPY)",
+      "source_url": "https://www.ssga.com/us/en/individual/etfs/state-street-spdr-sp-500-etf-trust-spy",
+      "retrieved_at": "2026-09-04T05:29:02.075Z",
+      "latest_available_checked_at": "2026-09-04T05:29:02.075Z",
+      "quality": "official parsed source",
       "status": "available"
     }
   ]
