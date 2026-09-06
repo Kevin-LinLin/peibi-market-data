@@ -812,6 +812,34 @@
       "latest_available_checked_at": "2026-09-04T23:05:46.774Z",
       "quality": "automatic verified calculation",
       "status": "available"
+    },
+    {
+      "asset_id": "nasdaq100",
+      "metric": "pe",
+      "value": 30.52,
+      "unit": "x",
+      "observation_date": "2026-09-03",
+      "published_date": "2026-09-03",
+      "source": "State Street SPDR Portfolio Nasdaq-100 ETF (QNDX)",
+      "source_url": "https://www.ssga.com/us/en/individual/etfs/state-street-spdr-portfolio-nasdaq-100-etf-qndx",
+      "retrieved_at": "2026-09-06T22:56:27.771Z",
+      "latest_available_checked_at": "2026-09-06T22:56:27.771Z",
+      "quality": "official parsed source",
+      "status": "available"
+    },
+    {
+      "asset_id": "sp500",
+      "metric": "pe",
+      "value": 25.23,
+      "unit": "x",
+      "observation_date": "2026-09-03",
+      "published_date": "2026-09-03",
+      "source": "State Street SPDR S&P 500 ETF Trust (SPY)",
+      "source_url": "https://www.ssga.com/us/en/individual/etfs/state-street-spdr-sp-500-etf-trust-spy",
+      "retrieved_at": "2026-09-06T22:56:27.811Z",
+      "latest_available_checked_at": "2026-09-06T22:56:27.811Z",
+      "quality": "official parsed source",
+      "status": "available"
     }
   ]
 }

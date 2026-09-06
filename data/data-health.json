@@ -1,44 +1,44 @@
 {
   "schema_version": 1,
   "last_daily_refresh": "2026-09-04T23:05:46.783Z",
-  "last_weekly_refresh": "2026-09-04T09:50:27.154Z",
+  "last_weekly_refresh": "2026-09-06T22:56:36.886Z",
   "daily_status": "Healthy",
   "weekly_status": "Healthy",
-  "generated_at": "2026-09-04T23:05:46.837Z",
+  "generated_at": "2026-09-06T22:56:36.933Z",
   "assets": {
     "nasdaq100": {
       "latest_market_date": "2026-09-03",
-      "latest_valuation_date": "2026-09-02",
+      "latest_valuation_date": "2026-09-03",
       "latest_fundamental_date": "2026-07-10",
-      "latest_available_checked_at": "2026-09-04T09:50:15.488Z",
+      "latest_available_checked_at": "2026-09-06T22:56:27.771Z",
       "sla_status": "Healthy",
       "source_status": "available",
       "metric_status": {
         "pe": {
           "source_status": "available",
           "status": "available",
-          "observation_date": "2026-09-02",
-          "latest_available_checked_at": "2026-09-04T09:50:15.488Z"
+          "observation_date": "2026-09-03",
+          "latest_available_checked_at": "2026-09-06T22:56:27.771Z"
         }
       },
-      "history_sample_count": 17
+      "history_sample_count": 18
     },
     "sp500": {
       "latest_market_date": "2026-09-03",
-      "latest_valuation_date": "2026-09-02",
+      "latest_valuation_date": "2026-09-03",
       "latest_fundamental_date": "2026-07-10",
-      "latest_available_checked_at": "2026-09-04T09:50:15.524Z",
+      "latest_available_checked_at": "2026-09-06T22:56:27.811Z",
       "sla_status": "Healthy",
       "source_status": "available",
       "metric_status": {
         "pe": {
           "source_status": "available",
           "status": "available",
-          "observation_date": "2026-09-02",
-          "latest_available_checked_at": "2026-09-04T09:50:15.524Z"
+          "observation_date": "2026-09-03",
+          "latest_available_checked_at": "2026-09-06T22:56:27.811Z"
         }
       },
-      "history_sample_count": 17
+      "history_sample_count": 18
     },
     "gold": {
       "latest_market_date": "2026-09-04",
@@ -54,7 +54,7 @@
       "latest_market_date": null,
       "latest_valuation_date": "2026-08-31",
       "latest_fundamental_date": null,
-      "latest_available_checked_at": "2026-09-04T09:50:21.907Z",
+      "latest_available_checked_at": "2026-09-06T22:56:31.858Z",
       "sla_status": "Healthy",
       "source_status": "available",
       "metric_status": {
@@ -62,13 +62,13 @@
           "source_status": "available",
           "status": "available",
           "observation_date": "2026-08-31",
-          "latest_available_checked_at": "2026-09-04T09:50:20.555Z"
+          "latest_available_checked_at": "2026-09-06T22:56:30.618Z"
         },
         "rolling_pe": {
           "source_status": "available",
           "status": "available",
           "observation_date": "2026-08-31",
-          "latest_available_checked_at": "2026-09-04T09:50:21.907Z"
+          "latest_available_checked_at": "2026-09-06T22:56:31.858Z"
         }
       },
       "history_sample_count": 3
@@ -77,7 +77,7 @@
       "latest_market_date": null,
       "latest_valuation_date": "2026-08-31",
       "latest_fundamental_date": null,
-      "latest_available_checked_at": "2026-09-04T09:50:23.520Z",
+      "latest_available_checked_at": "2026-09-06T22:56:33.720Z",
       "sla_status": "Healthy",
       "source_status": "available",
       "metric_status": {
@@ -85,13 +85,13 @@
           "source_status": "available",
           "status": "available",
           "observation_date": "2026-08-31",
-          "latest_available_checked_at": "2026-09-04T09:50:22.813Z"
+          "latest_available_checked_at": "2026-09-06T22:56:32.932Z"
         },
         "dividend_yield": {
           "source_status": "available",
           "status": "available",
           "observation_date": "2026-08-31",
-          "latest_available_checked_at": "2026-09-04T09:50:23.520Z"
+          "latest_available_checked_at": "2026-09-06T22:56:33.720Z"
         }
       },
       "history_sample_count": 3
@@ -100,7 +100,7 @@
       "latest_market_date": null,
       "latest_valuation_date": "2026-07-31",
       "latest_fundamental_date": null,
-      "latest_available_checked_at": "2026-09-04T09:50:25.300Z",
+      "latest_available_checked_at": "2026-09-06T22:56:35.288Z",
       "sla_status": "Healthy",
       "source_status": "available",
       "metric_status": {
@@ -108,7 +108,7 @@
           "source_status": "available",
           "status": "available",
           "observation_date": "2026-07-31",
-          "latest_available_checked_at": "2026-09-04T09:50:25.300Z"
+          "latest_available_checked_at": "2026-09-06T22:56:35.288Z"
         }
       },
       "history_sample_count": 2
@@ -127,7 +127,7 @@
       "latest_market_date": null,
       "latest_valuation_date": "2026-08-31",
       "latest_fundamental_date": null,
-      "latest_available_checked_at": "2026-09-04T09:50:27.147Z",
+      "latest_available_checked_at": "2026-09-06T22:56:36.879Z",
       "sla_status": "Healthy",
       "source_status": "available",
       "metric_status": {
@@ -135,13 +135,13 @@
           "source_status": "available",
           "status": "available",
           "observation_date": "2026-08-31",
-          "latest_available_checked_at": "2026-09-04T09:50:26.678Z"
+          "latest_available_checked_at": "2026-09-06T22:56:36.469Z"
         },
         "rolling_pe": {
           "source_status": "available",
           "status": "available",
           "observation_date": "2026-08-31",
-          "latest_available_checked_at": "2026-09-04T09:50:27.147Z"
+          "latest_available_checked_at": "2026-09-06T22:56:36.879Z"
         }
       },
       "history_sample_count": 3

@@ -1,15 +1,15 @@
 {
   "schema_version": 1,
   "as_of": "2026-08-31",
-  "generated_at": "2026-09-04T23:05:46.870Z",
+  "generated_at": "2026-09-06T22:56:36.963Z",
   "model_version": "production-v1-simplified-valuation",
   "assets": {
     "nasdaq100": {
-      "score": 52,
+      "score": 48,
       "investment_status": "中性",
       "valuation_status": "合理",
       "confidence": "Low",
-      "valuation": 50,
+      "valuation": 45,
       "fundamentals": null,
       "market_condition": 56,
       "risk_health": 54,
@@ -18,13 +18,13 @@
       "valuation_inputs": [
         {
           "metric": "pe",
-          "value": 30.2,
+          "value": 30.52,
           "unit": "x",
-          "observation_date": "2026-09-02",
+          "observation_date": "2026-09-03",
           "source": "State Street SPDR Portfolio Nasdaq-100 ETF (QNDX)",
           "weight": 1,
-          "score": 50,
-          "sample_count": 1,
+          "score": 45.45454545454545,
+          "sample_count": 2,
           "context": "limited_history_percentile"
         }
       ],
@@ -32,11 +32,11 @@
       "model": "production-v1-simplified-valuation"
     },
     "sp500": {
-      "score": 52,
+      "score": 49,
       "investment_status": "中性",
       "valuation_status": "合理",
       "confidence": "Low",
-      "valuation": 50,
+      "valuation": 45,
       "fundamentals": null,
       "market_condition": 51,
       "risk_health": 65,
@@ -45,13 +45,13 @@
       "valuation_inputs": [
         {
           "metric": "pe",
-          "value": 24.97,
+          "value": 25.23,
           "unit": "x",
-          "observation_date": "2026-09-02",
+          "observation_date": "2026-09-03",
           "source": "State Street SPDR S&P 500 ETF Trust (SPY)",
           "weight": 1,
-          "score": 50,
-          "sample_count": 1,
+          "score": 45.45454545454545,
+          "sample_count": 2,
           "context": "limited_history_percentile"
         }
       ],
