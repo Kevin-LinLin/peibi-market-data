@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "as_of": "2026-08-31",
-  "generated_at": "2026-09-07T23:35:38.198Z",
+  "generated_at": "2026-09-08T23:27:33.066Z",
   "model_version": "production-v1-simplified-valuation",
   "assets": {
     "nasdaq100": {

@@ -938,6 +938,48 @@
       "latest_available_checked_at": "2026-09-07T23:35:38.095Z",
       "quality": "automatic verified calculation",
       "status": "available"
+    },
+    {
+      "asset_id": "gold",
+      "metric": "price",
+      "value": 4356.700195,
+      "unit": "USD/troy oz",
+      "observation_date": "2026-09-08",
+      "published_date": "2026-09-08",
+      "source": "Gold API",
+      "source_url": "https://api.gold-api.com/price/XAU",
+      "retrieved_at": "2026-09-08T23:27:32.865Z",
+      "latest_available_checked_at": "2026-09-08T23:27:32.865Z",
+      "quality": "automatic verified",
+      "status": "available"
+    },
+    {
+      "asset_id": "gold",
+      "metric": "real_yield",
+      "value": 2.43,
+      "unit": "%",
+      "observation_date": "2026-09-04",
+      "published_date": "2026-09-04",
+      "source": "FRED",
+      "source_url": "https://fred.stlouisfed.org/series/DFII10",
+      "retrieved_at": "2026-09-08T23:27:32.879Z",
+      "latest_available_checked_at": "2026-09-08T23:27:32.879Z",
+      "quality": "automatic verified",
+      "status": "available"
+    },
+    {
+      "asset_id": "gold",
+      "metric": "usd_index",
+      "value": 118.0732,
+      "unit": "index",
+      "observation_date": "2026-09-04",
+      "published_date": "2026-09-04",
+      "source": "FRED",
+      "source_url": "https://fred.stlouisfed.org/series/DTWEXBGS",
+      "retrieved_at": "2026-09-08T23:27:32.930Z",
+      "latest_available_checked_at": "2026-09-08T23:27:32.930Z",
+      "quality": "automatic verified",
+      "status": "available"
     }
   ]
 }
