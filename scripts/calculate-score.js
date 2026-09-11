@@ -380,6 +380,13 @@ const assets = Object.fromEntries(
   )
 );
 
+const latestObservationDate = rows =>
+  rows
+    .map(row => row?.observation_date)
+    .filter(Boolean)
+    .sort()
+    .at(-1) ?? null;
+
 for (const [id, definition] of Object.entries(
   VALUATION_MODELS
 )) {
@@ -489,6 +496,26 @@ for (const [id, definition] of Object.entries(
     risk_health:
       risk,
 
+    score_observation_date:
+      latestObservationDate([
+        ...valuation.inputs,
+        metricRow(
+          all,
+          id,
+          'drawdown'
+        ),
+        metricRow(
+          all,
+          id,
+          'trend'
+        ),
+        metricRow(
+          all,
+          id,
+          'volatility'
+        )
+      ]),
+
     confidence:
       valuation.confidence,
 
@@ -502,10 +529,36 @@ for (const [id, definition] of Object.entries(
   };
 }
 
-// Gold is deliberately copied unchanged:
-// its independent frozen model is outside Stage B.
+// Gold remains on its independent frozen model. Preserve the date of the
+// inputs that actually produced this score instead of presenting a newer
+// market refresh as a newer gold score.
+const goldScoreDate =
+  existing.assets.gold
+    ?.score_observation_date ??
+  existing.as_of ??
+  null;
+
+const goldLatestInputDate =
+  latestObservationDate(
+    all.filter(
+      row =>
+        row.asset_id === 'gold'
+    )
+  );
+
 assets.gold = {
-  ...existing.assets.gold
+  ...existing.assets.gold,
+  score_observation_date:
+    goldScoreDate,
+  latest_input_observation_date:
+    goldLatestInputDate,
+  score_status:
+    goldLatestInputDate &&
+    goldScoreDate &&
+    goldLatestInputDate >
+      goldScoreDate
+      ? 'recalculation_required'
+      : 'current'
 };
 
 assets.csi_healthcare = {
@@ -521,6 +574,8 @@ await save(
   'data/market-snapshot.json',
   {
     ...existing,
+    as_of:
+      latestObservationDate(all),
     generated_at: now(),
     model_version:
       'production-v1-simplified-valuation',

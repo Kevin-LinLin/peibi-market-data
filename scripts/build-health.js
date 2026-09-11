@@ -14,7 +14,12 @@ for (const asset of ASSETS) {
   const marketRow = latest(market.metrics, id, () => true);
   const coreMetrics = Object.entries(SOURCES[id]).filter(([, config]) => config.mode === 'auto_parsed').map(([metric]) => metric);
   const coreRows = coreMetrics.map(metric => latest(valuation.metrics, id, row => row.metric === metric)).filter(Boolean);
-  const checked = coreRows.map(row => row.latest_available_checked_at).filter(Boolean).sort().at(-1) ?? rows.map(row => row.latest_available_checked_at).filter(Boolean).sort().at(-1) ?? null;
+  // Asset health is constrained by its stalest required source, not its freshest one.
+  // A newly checked PE must not hide an overdue PB (or vice versa).
+  const coreChecked = coreRows.map(row => row.latest_available_checked_at).filter(Boolean).sort();
+  const checked = coreMetrics.length
+    ? (coreRows.length === coreMetrics.length ? (coreChecked.at(0) ?? null) : null)
+    : (rows.map(row => row.latest_available_checked_at).filter(Boolean).sort().at(0) ?? null);
   const metric_status = Object.fromEntries(coreMetrics.map(metric => {
     const row = coreRows.find(item => item.metric === metric);
     return [metric, row ? { source_status: 'available', status: row.status, observation_date: row.observation_date, latest_available_checked_at: row.latest_available_checked_at } : { source_status: 'source_failure', status: 'unavailable', latest_available_checked_at: null }];
@@ -27,7 +32,17 @@ for (const asset of ASSETS) {
     sla_status: slaStatus(checked),
     source_status: coreMetrics.length ? (coreRows.length === coreMetrics.length ? 'available' : 'partial') : (rows.length ? 'supervised' : 'core_data_missing'),
     metric_status,
-    history_sample_count: history.records.filter(row => row.asset_id === id).length
+    history_sample_count: history.records.filter(row => row.asset_id === id).length,
+    history_sample_count_by_metric: Object.fromEntries(
+      coreMetrics.map(metric => [
+        metric,
+        new Set(
+          history.records
+            .filter(row => row.asset_id === id && row.metric === metric)
+            .map(row => row.observation_date)
+        ).size
+      ])
+    )
   };
 }
 
