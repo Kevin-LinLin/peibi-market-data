@@ -1,15 +1,15 @@
 {
   "schema_version": 1,
   "as_of": "2026-09-11",
-  "generated_at": "2026-09-11T23:22:23.478Z",
+  "generated_at": "2026-09-13T23:15:50.626Z",
   "model_version": "production-v1-simplified-valuation",
   "assets": {
     "nasdaq100": {
-      "score": 49,
+      "score": 58,
       "investment_status": "中性",
       "valuation_status": "合理",
-      "confidence": "Low",
-      "valuation": 45,
+      "confidence": "Medium",
+      "valuation": 59,
       "fundamentals": null,
       "market_condition": 58,
       "risk_health": 54,
@@ -18,13 +18,13 @@
       "valuation_inputs": [
         {
           "metric": "pe",
-          "value": 30.52,
+          "value": 30.05,
           "unit": "x",
-          "observation_date": "2026-09-03",
+          "observation_date": "2026-09-10",
           "source": "State Street SPDR Portfolio Nasdaq-100 ETF (QNDX)",
           "weight": 1,
-          "score": 45.45454545454545,
-          "sample_count": 2,
+          "score": 59.09090909090909,
+          "sample_count": 3,
           "context": "limited_history_percentile"
         }
       ],
@@ -33,11 +33,11 @@
       "score_observation_date": "2026-09-10"
     },
     "sp500": {
-      "score": 49,
+      "score": 59,
       "investment_status": "中性",
       "valuation_status": "合理",
-      "confidence": "Low",
-      "valuation": 45,
+      "confidence": "Medium",
+      "valuation": 59,
       "fundamentals": null,
       "market_condition": 54,
       "risk_health": 64,
@@ -46,13 +46,13 @@
       "valuation_inputs": [
         {
           "metric": "pe",
-          "value": 25.23,
+          "value": 24.69,
           "unit": "x",
-          "observation_date": "2026-09-03",
+          "observation_date": "2026-09-10",
           "source": "State Street SPDR S&P 500 ETF Trust (SPY)",
           "weight": 1,
-          "score": 45.45454545454545,
-          "sample_count": 2,
+          "score": 59.09090909090909,
+          "sample_count": 3,
           "context": "limited_history_percentile"
         }
       ],
@@ -155,23 +155,23 @@
       "score_observation_date": "2026-08-31"
     },
     "hangseng_tech": {
-      "score": 50,
+      "score": 45,
       "score_type": "simplified_valuation",
       "investment_status": "中性",
       "valuation_status": "合理",
       "confidence": "Low",
       "valuation_context_type": "limited_history_percentile",
-      "valuation": 50,
+      "valuation": 45,
       "valuation_inputs": [
         {
           "metric": "pe",
-          "value": 29.76,
+          "value": 30.78,
           "unit": "x",
-          "observation_date": "2026-07-31",
+          "observation_date": "2026-08-31",
           "source": "Hang Seng TECH Index factsheet",
           "weight": 1,
-          "score": 50,
-          "sample_count": 1,
+          "score": 45.45454545454545,
+          "sample_count": 2,
           "context": "limited_history_percentile"
         }
       ],
@@ -180,7 +180,7 @@
       "risk_health": null,
       "data_status": "available",
       "model": "production-v1-simplified-valuation",
-      "score_observation_date": "2026-07-31"
+      "score_observation_date": "2026-08-31"
     },
     "csi_healthcare": {
       "score": null,
