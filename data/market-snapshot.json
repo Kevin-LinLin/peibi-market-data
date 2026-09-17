@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "as_of": "2026-09-16",
-  "generated_at": "2026-09-17T09:33:04.973Z",
+  "as_of": "2026-09-17",
+  "generated_at": "2026-09-17T23:34:43.996Z",
   "model_version": "production-v1-simplified-valuation",
   "assets": {
     "nasdaq100": {
@@ -30,7 +30,7 @@
       ],
       "data_status": "available",
       "model": "production-v1-simplified-valuation",
-      "score_observation_date": "2026-09-15"
+      "score_observation_date": "2026-09-16"
     },
     "sp500": {
       "score": 62,
@@ -39,7 +39,7 @@
       "confidence": "Medium",
       "valuation": 64,
       "fundamentals": null,
-      "market_condition": 54,
+      "market_condition": 55,
       "risk_health": 64,
       "valuation_context_type": "limited_history_percentile",
       "score_type": "simplified_valuation",
@@ -58,7 +58,7 @@
       ],
       "data_status": "available",
       "model": "production-v1-simplified-valuation",
-      "score_observation_date": "2026-09-15"
+      "score_observation_date": "2026-09-16"
     },
     "gold": {
       "score": 19,
@@ -73,7 +73,7 @@
         "risk_health": 49.07
       },
       "score_observation_date": "2026-08-31",
-      "latest_input_observation_date": "2026-09-16",
+      "latest_input_observation_date": "2026-09-17",
       "score_status": "recalculation_required",
       "data_status": "stale"
     },
