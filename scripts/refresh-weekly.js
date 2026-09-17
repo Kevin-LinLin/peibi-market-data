@@ -139,6 +139,33 @@ function parseStateStreetPe(body) {
     : null;
 }
 
+function parseStateStreetFy1Pe(body) {
+  const start = body.search(
+    /<h2[^>]*class="comp-title"[^>]*>\s*Fund Characteristics\b/i
+  );
+  const section =
+    start >= 0
+      ? body.slice(start, start + 12000)
+      : body;
+
+  const date = isoFromEnglishDate(
+    textFromHtml(section).match(
+      /Fund Characteristics\s+as of\s+([A-Z][a-z]{2}\s+\d{1,2}\s+20\d{2})/i
+    )?.[1]
+  );
+
+  const value = section.match(
+    /Price\/Earnings Ratio FY1[\s\S]{0,1400}?<\/th>\s*<td[^>]*class="data"[^>]*>\s*(\d+(?:\.\d+)?)\s*<\/td>/i
+  )?.[1];
+
+  return value && date
+    ? {
+        value: Number(value),
+        observation_date: date
+      }
+    : null;
+}
+
 function parseCsiFactsheet(text, label) {
   const escaped = label.replace(
     /[.*+?^${}()|[\]\\]/g,
@@ -222,6 +249,14 @@ function parseHsTechFactsheet(text) {
 async function parseMetric(asset, metric, config) {
   if (config.parser === 'state_street_pe') {
     return parseStateStreetPe(
+      await (
+        await fetchWithRetry(config.source_url)
+      ).text()
+    );
+  }
+
+  if (config.parser === 'state_street_fy1_pe') {
+    return parseStateStreetFy1Pe(
       await (
         await fetchWithRetry(config.source_url)
       ).text()

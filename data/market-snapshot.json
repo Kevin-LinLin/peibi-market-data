@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "as_of": "2026-09-16",
-  "generated_at": "2026-09-16T23:41:03.693Z",
+  "generated_at": "2026-09-17T07:23:02.827Z",
   "model_version": "production-v1-simplified-valuation",
   "assets": {
     "nasdaq100": {
@@ -64,7 +64,7 @@
       "score": 19,
       "investment_status": "明显偏低",
       "valuation_status": "明显偏贵",
-      "confidence": "Medium",
+      "confidence": "Low",
       "components": {
         "real_yield": 6.77,
         "usd": 22.44,
@@ -74,7 +74,8 @@
       },
       "score_observation_date": "2026-08-31",
       "latest_input_observation_date": "2026-09-16",
-      "score_status": "recalculation_required"
+      "score_status": "recalculation_required",
+      "data_status": "stale"
     },
     "csi_a500": {
       "score": 50,
@@ -155,13 +156,13 @@
       "score_observation_date": "2026-08-31"
     },
     "hangseng_tech": {
-      "score": 45,
+      "score": 59,
       "score_type": "simplified_valuation",
       "investment_status": "中性",
       "valuation_status": "合理",
-      "confidence": "Low",
-      "valuation_context_type": "limited_history_percentile",
-      "valuation": 45,
+      "confidence": "High",
+      "valuation_context_type": "exact_percentile",
+      "valuation": 59,
       "valuation_inputs": [
         {
           "metric": "pe",
@@ -170,9 +171,9 @@
           "observation_date": "2026-08-31",
           "source": "Hang Seng TECH Index factsheet",
           "weight": 1,
-          "score": 45.45454545454545,
-          "sample_count": 2,
-          "context": "limited_history_percentile"
+          "score": 59.375,
+          "sample_count": 33,
+          "context": "exact_percentile"
         }
       ],
       "fundamentals": null,

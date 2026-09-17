@@ -546,19 +546,32 @@ const goldLatestInputDate =
     )
   );
 
+const goldNeedsRecalculation =
+  Boolean(
+    goldLatestInputDate &&
+    goldScoreDate &&
+    goldLatestInputDate > goldScoreDate
+  );
+
 assets.gold = {
   ...existing.assets.gold,
   score_observation_date:
     goldScoreDate,
   latest_input_observation_date:
     goldLatestInputDate,
-  score_status:
-    goldLatestInputDate &&
-    goldScoreDate &&
-    goldLatestInputDate >
-      goldScoreDate
-      ? 'recalculation_required'
-      : 'current'
+  score_status: goldNeedsRecalculation
+    ? 'recalculation_required'
+    : 'current',
+  // A stale frozen-model score remains visible for context, but Low confidence
+  // makes the allocation layer fall back to its neutral 1x multiplier.
+  confidence: goldNeedsRecalculation
+    ? 'Low'
+    : existing.assets.gold
+        ?.confidence,
+  data_status: goldNeedsRecalculation
+    ? 'stale'
+    : existing.assets.gold
+        ?.data_status
 };
 
 assets.csi_healthcare = {

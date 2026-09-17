@@ -19,14 +19,16 @@ export const SOURCES = {
     drawdown: { mode: 'derived', from: 'price' }, trend: { mode: 'derived', from: 'price' },
     forward_pe: { mode: 'manual', source: 'Nasdaq Index Insights / FactSet', source_url: 'https://www.nasdaq.com/articles/global-indexes/biweekly-investment-insights-earnings-remain-the-clear-driver-for-equity-returns' },
     earnings_growth: { mode: 'manual', source: 'Nasdaq Index Insights / FactSet', source_url: 'https://www.nasdaq.com/articles/global-indexes/biweekly-investment-insights-earnings-remain-the-clear-driver-for-equity-returns' },
-    pe: { mode: 'auto_parsed', parser: 'state_street_pe', source: 'State Street SPDR Portfolio Nasdaq-100 ETF (QNDX)', source_url: 'https://www.ssga.com/us/en/individual/etfs/state-street-spdr-portfolio-nasdaq-100-etf-qndx', unit: 'x', metric_definition: 'Price/Earnings shown in QNDX Index Characteristics' }
+    pe: { mode: 'auto_parsed', parser: 'state_street_pe', source: 'State Street SPDR Portfolio Nasdaq-100 ETF (QNDX)', source_url: 'https://www.ssga.com/us/en/individual/etfs/state-street-spdr-portfolio-nasdaq-100-etf-qndx', unit: 'x', metric_definition: 'Price/Earnings shown in QNDX Index Characteristics' },
+    forward_pe_fy1: { mode: 'auto_parsed', parser: 'state_street_fy1_pe', source: 'State Street SPDR Portfolio Nasdaq-100 ETF (QNDX)', source_url: 'https://www.ssga.com/us/en/individual/etfs/state-street-spdr-portfolio-nasdaq-100-etf-qndx', unit: 'x', metric_definition: 'Price/Earnings Ratio FY1 shown in QNDX Fund Characteristics; supplemental display context only' }
   },
   sp500: {
     price: { mode: 'auto', fred: 'SP500', unit: 'index points', source: 'FRED', source_url: 'https://fred.stlouisfed.org/series/SP500' },
     volatility: { mode: 'derived', from: 'price' }, drawdown: { mode: 'derived', from: 'price' }, trend: { mode: 'derived', from: 'price' },
     forward_pe: { mode: 'manual', parser: 'factset_sp500_forward_pe', source: 'FactSet', source_url: 'https://insight.factset.com/sp-500-earnings-season-update-august-7-2026' },
     earnings_growth: { mode: 'manual', manual_status: 'manual_required', source: 'FactSet S&P 500 Earnings Season Update', source_url: 'https://insight.factset.com/sp-500-earnings-season-update-august-7-2026' },
-    pe: { mode: 'auto_parsed', parser: 'state_street_pe', source: 'State Street SPDR S&P 500 ETF Trust (SPY)', source_url: 'https://www.ssga.com/us/en/individual/etfs/state-street-spdr-sp-500-etf-trust-spy', unit: 'x', metric_definition: 'Price/Earnings shown in SPY Index Characteristics' }
+    pe: { mode: 'auto_parsed', parser: 'state_street_pe', source: 'State Street SPDR S&P 500 ETF Trust (SPY)', source_url: 'https://www.ssga.com/us/en/individual/etfs/state-street-spdr-sp-500-etf-trust-spy', unit: 'x', metric_definition: 'Price/Earnings shown in SPY Index Characteristics' },
+    forward_pe_fy1: { mode: 'auto_parsed', parser: 'state_street_fy1_pe', source: 'State Street SPDR S&P 500 ETF Trust (SPY)', source_url: 'https://www.ssga.com/us/en/individual/etfs/state-street-spdr-sp-500-etf-trust-spy', unit: 'x', metric_definition: 'Price/Earnings Ratio FY1 shown in SPY Fund Characteristics; supplemental display context only' }
   },
   gold: {
     price: { mode: 'auto', url: 'https://api.gold-api.com/price/XAU', unit: 'USD/troy oz', source: 'Gold API', source_url: 'https://api.gold-api.com/price/XAU' },
