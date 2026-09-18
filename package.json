@@ -9,7 +9,9 @@
     "score": "node scripts/calculate-score.js",
     "health": "node scripts/build-health.js",
     "refresh:daily": "node scripts/refresh-daily.js",
-    "refresh:weekly": "node scripts/refresh-weekly.js"
+    "refresh:weekly": "node scripts/refresh-weekly.js",
+    "baseline:gold": "node scripts/update-gold-baseline.js",
+    "test:score": "node scripts/calculate-score.js --self-test"
   },
   "engines": { "node": ">=20" }
 }

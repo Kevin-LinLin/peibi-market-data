@@ -48,7 +48,8 @@ const OUTER_WEIGHTS = {
 const VALUATION_MODELS = {
   nasdaq100: [
     {
-      metric: 'pe',
+      metric: 'forward_pe_fy1',
+      baseline_metric: 'forward_pe_10y_mean',
       weight: 1,
       direction: 'lower'
     }
@@ -56,7 +57,8 @@ const VALUATION_MODELS = {
 
   sp500: [
     {
-      metric: 'pe',
+      metric: 'forward_pe_fy1',
+      baseline_metric: 'forward_pe_10y_mean',
       weight: 1,
       direction: 'lower'
     }
@@ -225,10 +227,43 @@ function historicalAttractiveness(
   };
 }
 
+// For US index FY1 P/E, the verified public data includes a current value and
+// a published 10-year mean, but not a complete same-definition time series.
+// This continuous relative-to-mean mapping is the previously validated
+// approximate-band rule; it is explicitly capped at Medium confidence.
+function approximateBandAttractiveness(value, baseline) {
+  if (
+    !Number.isFinite(value) ||
+    !Number.isFinite(baseline) ||
+    baseline <= 0
+  ) {
+    return null;
+  }
+
+  return clamp(
+    50 - ((value / baseline - 1) * 100) * 1.25,
+    0,
+    100
+  );
+}
+
 function confidenceFor(inputs, expectedCount) {
   if (
     !inputs.length ||
-    inputs.length < expectedCount ||
+    inputs.length < expectedCount
+  ) {
+    return 'Low';
+  }
+
+  if (
+    inputs.some(
+      input => input.context === 'approximate_band'
+    )
+  ) {
+    return 'Medium';
+  }
+
+  if (
     inputs.some(
       input => input.sample_count < 3
     )
@@ -260,14 +295,37 @@ function valuationFor(
       config.metric
     );
 
+    const baseline = config.baseline_metric
+      ? metricRow(
+          latest.metrics,
+          assetId,
+          config.baseline_metric
+        )
+      : null;
+
+    const bandScore =
+      row && baseline
+        ? approximateBandAttractiveness(
+            row.value,
+            baseline.value
+          )
+        : null;
+
     const normalized =
-      row &&
-      historicalAttractiveness(
-        history,
-        latest,
-        row,
-        config.direction
-      );
+      Number.isFinite(bandScore)
+        ? {
+            score: bandScore,
+            sample_count: 1,
+            context: 'approximate_band'
+          }
+        : row
+          ? historicalAttractiveness(
+              history,
+              latest,
+              row,
+              config.direction
+            )
+          : null;
 
     return normalized
       ? [
@@ -278,6 +336,10 @@ function valuationFor(
             observation_date:
               row.observation_date,
             source: row.source,
+            baseline_metric:
+              config.baseline_metric ?? null,
+            baseline_value:
+              baseline?.value ?? null,
             weight: config.weight,
             score: normalized.score,
             sample_count:
@@ -302,12 +364,14 @@ function valuationFor(
           definition.length
         ),
         context: inputs.every(
-          input =>
-            input.context ===
-            'exact_percentile'
+          input => input.context === 'exact_percentile'
         )
           ? 'exact_percentile'
-          : 'limited_history_percentile',
+          : inputs.some(
+                input => input.context === 'approximate_band'
+              )
+            ? 'approximate_band'
+            : 'limited_history_percentile',
         partial:
           inputs.length <
           definition.length
@@ -354,6 +418,162 @@ function finalScore(
   ]);
 }
 
+const percentile = (values, value) => {
+  const finite = values.filter(Number.isFinite);
+  if (!finite.length || !Number.isFinite(value)) return null;
+  return (
+    (finite.filter(item => item <= value).length /
+      finite.length) *
+    100
+  );
+};
+
+const sampleDeviation = values => {
+  if (values.length < 2) return null;
+  const mean =
+    values.reduce((total, value) => total + value, 0) /
+    values.length;
+  return Math.sqrt(
+    values.reduce(
+      (total, value) => total + (value - mean) ** 2,
+      0
+    ) /
+      (values.length - 1)
+  );
+};
+
+function goldScore(baseline, allRows) {
+  const price = metricRow(allRows, 'gold', 'price');
+  const realYield = metricRow(allRows, 'gold', 'real_yield');
+  const usd = metricRow(allRows, 'gold', 'usd_index');
+
+  if (!price || !realYield || !usd) return null;
+
+  const currentCpi = baseline.cpi
+    .filter(row => row.date <= price.observation_date)
+    .at(-1);
+
+  const cpiByMonth = new Map(
+    baseline.cpi.map(row => [row.date.slice(0, 7), row.value])
+  );
+
+  if (!currentCpi) return null;
+
+  const realPrices = baseline.gold_price.flatMap(row => {
+    const cpi = cpiByMonth.get(row.date.slice(0, 7));
+    return Number.isFinite(cpi)
+      ? [row.value * currentCpi.value / cpi]
+      : [];
+  });
+
+  const realPricePercentile = percentile(realPrices, price.value);
+  const rollingPrices = baseline.gold_price
+    .slice(-120)
+    .map(row => row.value);
+  const rollingPercentile = percentile(rollingPrices, price.value);
+  const combinedPosition =
+    realPricePercentile * 0.5 + rollingPercentile * 0.5;
+
+  const monthly = [
+    ...baseline.gold_price.slice(-12).map(row => row.value),
+    price.value
+  ];
+  const returns = monthly
+    .slice(1)
+    .map((value, index) => value / monthly[index] - 1);
+  const twelveMonthReturn =
+    (price.value / monthly[0] - 1) * 100;
+  const volatility =
+    sampleDeviation(returns) * Math.sqrt(12) * 100;
+
+  const components = {
+    real_yield:
+      100 - percentile(
+        baseline.real_yield.map(row => row.value),
+        realYield.value
+      ),
+    usd:
+      100 - percentile(
+        baseline.usd_index.map(row => row.value),
+        usd.value
+      ),
+    price_position: 100 - combinedPosition,
+    // Frozen trend transform: a normal positive long-term trend stays near
+    // neutral, while an unusually extended 12-month move lowers attractiveness.
+    long_term_trend: clamp(
+      55 - twelveMonthReturn / 4,
+      20,
+      80
+    ),
+    risk_health: riskHealth(volatility)
+  };
+
+  const score = Math.round(
+    components.real_yield * 0.3 +
+      components.usd * 0.2 +
+      components.price_position * 0.25 +
+      components.long_term_trend * 0.15 +
+      components.risk_health * 0.1
+  );
+
+  return {
+    score,
+    components: Object.fromEntries(
+      Object.entries(components).map(([key, value]) => [
+        key,
+        Math.round(value * 100) / 100
+      ])
+    ),
+    diagnostics: {
+      real_yield_percentile: Math.round((100 - components.real_yield) * 100) / 100,
+      usd_percentile: Math.round((100 - components.usd) * 100) / 100,
+      real_price_percentile: Math.round(realPricePercentile * 100) / 100,
+      rolling_10y_percentile: Math.round(rollingPercentile * 100) / 100,
+      combined_price_percentile: Math.round(combinedPosition * 100) / 100,
+      twelve_month_return: Math.round(twelveMonthReturn * 100) / 100,
+      annualized_volatility: Math.round(volatility * 100) / 100
+    },
+    observation_date: latestObservationDate([price, realYield, usd])
+  };
+}
+
+function runDirectionalityChecks() {
+  const lowerPe = approximateBandAttractiveness(18, 20);
+  const higherPe = approximateBandAttractiveness(24, 20);
+  if (!(lowerPe > higherPe)) {
+    throw new Error('Direction check failed: lower P/E must be more attractive.');
+  }
+
+  const mockHistory = {
+    records: [
+      { asset_id: 'test', metric: 'yield', value: 2, observation_date: '2026-01-01' },
+      { asset_id: 'test', metric: 'yield', value: 4, observation_date: '2026-02-01' }
+    ]
+  };
+  const lowYield = historicalAttractiveness(
+    mockHistory,
+    { metrics: [] },
+    { asset_id: 'test', metric: 'yield', value: 2 },
+    'higher'
+  );
+  const highYield = historicalAttractiveness(
+    mockHistory,
+    { metrics: [] },
+    { asset_id: 'test', metric: 'yield', value: 4 },
+    'higher'
+  );
+  if (!(highYield.score > lowYield.score)) {
+    throw new Error('Direction check failed: higher dividend yield must be more attractive.');
+  }
+}
+
+runDirectionalityChecks();
+
+if (process.argv.includes('--self-test')) {
+  console.log('Score directionality checks passed.');
+  process.exit(0);
+}
+
 const market =
   await json('data/latest-market.json');
 
@@ -362,6 +582,9 @@ const valuationData =
 
 const history =
   await json('history/metrics.json');
+
+const goldBaseline =
+  await json('history/gold-score-baseline.json');
 
 const existing =
   await json('data/market-snapshot.json');
@@ -529,50 +752,35 @@ for (const [id, definition] of Object.entries(
   };
 }
 
-// Gold remains on its independent frozen model. Preserve the date of the
-// inputs that actually produced this score instead of presenting a newer
-// market refresh as a newer gold score.
-const goldScoreDate =
-  existing.assets.gold
-    ?.score_observation_date ??
-  existing.as_of ??
-  null;
+// Gold keeps its frozen independent five-factor model. The latest verified
+// market inputs are now recalculated against official historical baselines,
+// instead of leaving a newer input set attached to an older score.
+const currentGold = goldScore(goldBaseline, all);
 
-const goldLatestInputDate =
-  latestObservationDate(
-    all.filter(
-      row =>
-        row.asset_id === 'gold'
-    )
-  );
-
-const goldNeedsRecalculation =
-  Boolean(
-    goldLatestInputDate &&
-    goldScoreDate &&
-    goldLatestInputDate > goldScoreDate
-  );
-
-assets.gold = {
-  ...existing.assets.gold,
-  score_observation_date:
-    goldScoreDate,
-  latest_input_observation_date:
-    goldLatestInputDate,
-  score_status: goldNeedsRecalculation
-    ? 'recalculation_required'
-    : 'current',
-  // A stale frozen-model score remains visible for context, but Low confidence
-  // makes the allocation layer fall back to its neutral 1x multiplier.
-  confidence: goldNeedsRecalculation
-    ? 'Low'
-    : existing.assets.gold
-        ?.confidence,
-  data_status: goldNeedsRecalculation
-    ? 'stale'
-    : existing.assets.gold
-        ?.data_status
-};
+assets.gold = currentGold
+  ? {
+      ...existing.assets.gold,
+      score: currentGold.score,
+      investment_status: status(currentGold.score),
+      valuation: Math.round(currentGold.components.price_position),
+      valuation_status: valuationStatus(
+        currentGold.components.price_position
+      ),
+      confidence: 'High',
+      components: currentGold.components,
+      diagnostics: currentGold.diagnostics,
+      score_observation_date: currentGold.observation_date,
+      latest_input_observation_date: currentGold.observation_date,
+      score_status: 'current',
+      data_status: 'available',
+      model: 'production-v1-gold-frozen'
+    }
+  : {
+      ...existing.assets.gold,
+      confidence: 'Low',
+      score_status: 'recalculation_required',
+      data_status: 'stale'
+    };
 
 assets.csi_healthcare = {
   ...existing.assets.csi_healthcare,
