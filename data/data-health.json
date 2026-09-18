@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "last_daily_refresh": "2026-09-18T08:45:55.151Z",
+  "last_daily_refresh": "2026-09-18T23:23:03.592Z",
   "last_weekly_refresh": "2026-09-17T09:33:04.877Z",
   "daily_status": "Healthy",
   "weekly_status": "Healthy",
-  "generated_at": "2026-09-18T08:45:55.211Z",
+  "generated_at": "2026-09-18T23:23:03.649Z",
   "assets": {
     "nasdaq100": {
       "latest_market_date": "2026-09-17",
@@ -64,11 +64,11 @@
       "latest_market_date": "2026-09-18",
       "latest_valuation_date": null,
       "latest_fundamental_date": null,
-      "latest_available_checked_at": "2026-09-18T08:45:55.075Z",
+      "latest_available_checked_at": "2026-09-18T23:23:03.409Z",
       "sla_status": "Healthy",
       "source_status": "supervised",
       "metric_status": {},
-      "history_sample_count": 33,
+      "history_sample_count": 34,
       "history_sample_count_by_metric": {}
     },
     "csi_a500": {
