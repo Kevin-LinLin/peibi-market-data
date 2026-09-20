@@ -1,15 +1,15 @@
 {
   "schema_version": 1,
   "as_of": "2026-09-18",
-  "generated_at": "2026-09-18T23:23:03.704Z",
+  "generated_at": "2026-09-20T23:19:56.307Z",
   "model_version": "production-v1-simplified-valuation",
   "assets": {
     "nasdaq100": {
-      "score": 45,
-      "investment_status": "中性",
+      "score": 43,
+      "investment_status": "偏低",
       "valuation_status": "偏贵",
       "confidence": "Medium",
-      "valuation": 40,
+      "valuation": 38,
       "fundamentals": null,
       "market_condition": 56,
       "risk_health": 54,
@@ -18,14 +18,14 @@
       "valuation_inputs": [
         {
           "metric": "forward_pe_fy1",
-          "value": 24.6,
+          "value": 25.01,
           "unit": "x",
-          "observation_date": "2026-09-15",
+          "observation_date": "2026-09-17",
           "source": "State Street SPDR Portfolio Nasdaq-100 ETF (QNDX)",
           "baseline_metric": "forward_pe_10y_mean",
           "baseline_value": 22.82,
           "weight": 1,
-          "score": 40.24978089395266,
+          "score": 38.00394390885188,
           "sample_count": 1,
           "context": "approximate_band"
         }
@@ -35,11 +35,11 @@
       "score_observation_date": "2026-09-17"
     },
     "sp500": {
-      "score": 44,
+      "score": 43,
       "investment_status": "偏低",
       "valuation_status": "偏贵",
       "confidence": "Medium",
-      "valuation": 38,
+      "valuation": 37,
       "fundamentals": null,
       "market_condition": 53,
       "risk_health": 64,
@@ -48,14 +48,14 @@
       "valuation_inputs": [
         {
           "metric": "forward_pe_fy1",
-          "value": 20.93,
+          "value": 21.08,
           "unit": "x",
-          "observation_date": "2026-09-15",
+          "observation_date": "2026-09-17",
           "source": "State Street SPDR S&P 500 ETF Trust (SPY)",
           "baseline_metric": "forward_pe_10y_mean",
           "baseline_value": 19.03,
           "weight": 1,
-          "score": 37.51970572779824,
+          "score": 36.53441933788757,
           "sample_count": 1,
           "context": "approximate_band"
         }
