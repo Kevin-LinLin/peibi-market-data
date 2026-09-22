@@ -1,18 +1,18 @@
 {
   "schema_version": 1,
   "as_of": "2026-09-22",
-  "generated_at": "2026-09-22T00:11:04.522Z",
+  "generated_at": "2026-09-22T23:38:24.435Z",
   "model_version": "production-v1-simplified-valuation",
   "assets": {
     "nasdaq100": {
-      "score": 43,
+      "score": 42,
       "investment_status": "偏低",
       "valuation_status": "偏贵",
       "confidence": "Medium",
       "valuation": 38,
       "fundamentals": null,
-      "market_condition": 55,
-      "risk_health": 54,
+      "market_condition": 51,
+      "risk_health": 53,
       "valuation_context_type": "approximate_band",
       "score_type": "simplified_valuation",
       "valuation_inputs": [
@@ -32,7 +32,7 @@
       ],
       "data_status": "available",
       "model": "production-v1-simplified-valuation",
-      "score_observation_date": "2026-09-18"
+      "score_observation_date": "2026-09-21"
     },
     "sp500": {
       "score": 43,
@@ -70,11 +70,11 @@
       "valuation_status": "明显偏贵",
       "confidence": "High",
       "components": {
-        "real_yield": 0.88,
+        "real_yield": 1.16,
         "usd": 18.18,
         "price_position": 2.53,
-        "long_term_trend": 47.53,
-        "risk_health": 49.64
+        "long_term_trend": 47.61,
+        "risk_health": 49.74
       },
       "score_observation_date": "2026-09-22",
       "latest_input_observation_date": "2026-09-22",
@@ -82,13 +82,13 @@
       "data_status": "available",
       "valuation": 3,
       "diagnostics": {
-        "real_yield_percentile": 99.12,
+        "real_yield_percentile": 98.84,
         "usd_percentile": 81.82,
         "real_price_percentile": 99.1,
         "rolling_10y_percentile": 95.83,
         "combined_price_percentile": 97.47,
-        "twelve_month_return": 29.88,
-        "annualized_volatility": 22.1
+        "twelve_month_return": 29.58,
+        "annualized_volatility": 22.04
       },
       "model": "production-v1-gold-frozen"
     },
