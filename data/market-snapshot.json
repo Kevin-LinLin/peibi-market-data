@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "as_of": "2026-09-30",
-  "generated_at": "2026-09-30T00:34:23.158Z",
+  "as_of": "2026-10-01",
+  "generated_at": "2026-10-01T00:37:02.202Z",
   "model_version": "production-v1-simplified-valuation",
   "assets": {
     "nasdaq100": {
@@ -32,7 +32,7 @@
       ],
       "data_status": "available",
       "model": "production-v1-simplified-valuation",
-      "score_observation_date": "2026-09-28"
+      "score_observation_date": "2026-09-29"
     },
     "sp500": {
       "score": 42,
@@ -41,7 +41,7 @@
       "confidence": "Medium",
       "valuation": 35,
       "fundamentals": null,
-      "market_condition": 52,
+      "market_condition": 53,
       "risk_health": 64,
       "valuation_context_type": "approximate_band",
       "score_type": "simplified_valuation",
@@ -62,7 +62,7 @@
       ],
       "data_status": "available",
       "model": "production-v1-simplified-valuation",
-      "score_observation_date": "2026-09-29"
+      "score_observation_date": "2026-09-30"
     },
     "gold": {
       "score": 16,
@@ -73,11 +73,11 @@
         "real_yield": 0.29,
         "usd": 14.84,
         "price_position": 3.52,
-        "long_term_trend": 48.94,
-        "risk_health": 50.71
+        "long_term_trend": 49.26,
+        "risk_health": 50.74
       },
-      "score_observation_date": "2026-09-30",
-      "latest_input_observation_date": "2026-09-30",
+      "score_observation_date": "2026-10-01",
+      "latest_input_observation_date": "2026-10-01",
       "score_status": "current",
       "data_status": "available",
       "valuation": 4,
@@ -87,8 +87,8 @@
         "real_price_percentile": 98.8,
         "rolling_10y_percentile": 94.17,
         "combined_price_percentile": 96.48,
-        "twelve_month_return": 24.24,
-        "annualized_volatility": 21.43
+        "twelve_month_return": 22.97,
+        "annualized_volatility": 21.41
       },
       "model": "production-v1-gold-frozen"
     },
