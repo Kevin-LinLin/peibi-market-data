@@ -1,63 +1,74 @@
 {
   "schema_version": 1,
+  "last_daily_attempt": "2026-10-08T13:46:19.504Z",
   "last_daily_refresh": "2026-10-08T13:46:19.504Z",
+  "daily_last_run_status": "unknown",
+  "last_weekly_attempt": "2026-10-08T14:01:39.663Z",
   "last_weekly_refresh": "2026-09-27T23:51:36.427Z",
+  "weekly_last_run_status": "failed",
   "daily_status": "Healthy",
-  "weekly_status": "Healthy",
-  "generated_at": "2026-10-08T13:46:19.547Z",
+  "weekly_status": "Warning",
+  "weekly_failed_sources": [
+    {
+      "asset_id": "hangseng_tech",
+      "metric": "pe",
+      "error": "Error: HTTP 404"
+    }
+  ],
+  "generated_at": "2026-10-08T14:01:39.710Z",
   "assets": {
     "nasdaq100": {
       "latest_market_date": "2026-10-07",
-      "latest_valuation_date": "2026-09-24",
+      "latest_valuation_date": "2026-10-07",
       "latest_fundamental_date": "2026-07-10",
-      "latest_available_checked_at": "2026-09-27T23:51:29.527Z",
-      "sla_status": "Delayed",
+      "latest_available_checked_at": "2026-10-08T14:01:29.263Z",
+      "sla_status": "Healthy",
       "source_status": "available",
       "metric_status": {
         "pe": {
           "source_status": "available",
           "status": "available",
-          "observation_date": "2026-09-24",
-          "latest_available_checked_at": "2026-09-27T23:51:29.527Z"
+          "observation_date": "2026-10-07",
+          "latest_available_checked_at": "2026-10-08T14:01:29.263Z"
         },
         "forward_pe_fy1": {
           "source_status": "available",
           "status": "available",
-          "observation_date": "2026-09-24",
-          "latest_available_checked_at": "2026-09-27T23:51:29.555Z"
+          "observation_date": "2026-10-07",
+          "latest_available_checked_at": "2026-10-08T14:01:29.304Z"
         }
       },
-      "history_sample_count": 114,
+      "history_sample_count": 116,
       "history_sample_count_by_metric": {
-        "pe": 6,
-        "forward_pe_fy1": 3
+        "pe": 7,
+        "forward_pe_fy1": 4
       }
     },
     "sp500": {
       "latest_market_date": "2026-10-07",
-      "latest_valuation_date": "2026-09-24",
+      "latest_valuation_date": "2026-10-07",
       "latest_fundamental_date": "2026-07-10",
-      "latest_available_checked_at": "2026-09-27T23:51:29.592Z",
-      "sla_status": "Delayed",
+      "latest_available_checked_at": "2026-10-08T14:01:29.337Z",
+      "sla_status": "Healthy",
       "source_status": "available",
       "metric_status": {
         "pe": {
           "source_status": "available",
           "status": "available",
-          "observation_date": "2026-09-24",
-          "latest_available_checked_at": "2026-09-27T23:51:29.592Z"
+          "observation_date": "2026-10-07",
+          "latest_available_checked_at": "2026-10-08T14:01:29.337Z"
         },
         "forward_pe_fy1": {
           "source_status": "available",
           "status": "available",
-          "observation_date": "2026-09-24",
-          "latest_available_checked_at": "2026-09-27T23:51:29.619Z"
+          "observation_date": "2026-10-07",
+          "latest_available_checked_at": "2026-10-08T14:01:29.382Z"
         }
       },
-      "history_sample_count": 106,
+      "history_sample_count": 108,
       "history_sample_count_by_metric": {
-        "pe": 6,
-        "forward_pe_fy1": 3
+        "pe": 7,
+        "forward_pe_fy1": 4
       }
     },
     "gold": {
@@ -75,21 +86,21 @@
       "latest_market_date": null,
       "latest_valuation_date": "2026-08-31",
       "latest_fundamental_date": null,
-      "latest_available_checked_at": "2026-09-27T23:51:31.676Z",
-      "sla_status": "Delayed",
+      "latest_available_checked_at": "2026-10-08T14:01:32.479Z",
+      "sla_status": "Healthy",
       "source_status": "available",
       "metric_status": {
         "pb": {
           "source_status": "available",
           "status": "available",
           "observation_date": "2026-08-31",
-          "latest_available_checked_at": "2026-09-27T23:51:31.676Z"
+          "latest_available_checked_at": "2026-10-08T14:01:32.479Z"
         },
         "rolling_pe": {
           "source_status": "available",
           "status": "available",
           "observation_date": "2026-08-31",
-          "latest_available_checked_at": "2026-09-27T23:51:32.340Z"
+          "latest_available_checked_at": "2026-10-08T14:01:33.881Z"
         }
       },
       "history_sample_count": 5,
@@ -102,21 +113,21 @@
       "latest_market_date": null,
       "latest_valuation_date": "2026-08-31",
       "latest_fundamental_date": null,
-      "latest_available_checked_at": "2026-09-27T23:51:33.020Z",
-      "sla_status": "Delayed",
+      "latest_available_checked_at": "2026-10-08T14:01:35.469Z",
+      "sla_status": "Healthy",
       "source_status": "available",
       "metric_status": {
         "rolling_pe": {
           "source_status": "available",
           "status": "available",
           "observation_date": "2026-08-31",
-          "latest_available_checked_at": "2026-09-27T23:51:33.020Z"
+          "latest_available_checked_at": "2026-10-08T14:01:35.469Z"
         },
         "dividend_yield": {
           "source_status": "available",
           "status": "available",
           "observation_date": "2026-08-31",
-          "latest_available_checked_at": "2026-09-27T23:51:33.475Z"
+          "latest_available_checked_at": "2026-10-08T14:01:36.718Z"
         }
       },
       "history_sample_count": 5,
@@ -131,13 +142,14 @@
       "latest_fundamental_date": null,
       "latest_available_checked_at": "2026-09-27T23:51:34.851Z",
       "sla_status": "Delayed",
-      "source_status": "available",
+      "source_status": "partial",
       "metric_status": {
         "pe": {
-          "source_status": "available",
-          "status": "available",
+          "source_status": "source_failure",
+          "status": "last_known_good",
           "observation_date": "2026-08-31",
-          "latest_available_checked_at": "2026-09-27T23:51:34.851Z"
+          "latest_available_checked_at": "2026-09-27T23:51:34.851Z",
+          "error": "Error: HTTP 404"
         }
       },
       "history_sample_count": 34,
@@ -160,21 +172,21 @@
       "latest_market_date": null,
       "latest_valuation_date": "2026-08-31",
       "latest_fundamental_date": null,
-      "latest_available_checked_at": "2026-09-27T23:51:35.967Z",
-      "sla_status": "Delayed",
+      "latest_available_checked_at": "2026-10-08T14:01:38.253Z",
+      "sla_status": "Healthy",
       "source_status": "available",
       "metric_status": {
         "pb": {
           "source_status": "available",
           "status": "available",
           "observation_date": "2026-08-31",
-          "latest_available_checked_at": "2026-09-27T23:51:35.967Z"
+          "latest_available_checked_at": "2026-10-08T14:01:38.253Z"
         },
         "rolling_pe": {
           "source_status": "available",
           "status": "available",
           "observation_date": "2026-08-31",
-          "latest_available_checked_at": "2026-09-27T23:51:36.419Z"
+          "latest_available_checked_at": "2026-10-08T14:01:39.657Z"
         }
       },
       "history_sample_count": 5,

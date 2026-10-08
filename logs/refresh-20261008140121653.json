@@ -1,15 +1,16 @@
 {
-  "run_id": "weekly-20261008140129137",
+  "run_id": "weekly-20261008140121653",
   "run_type": "weekly",
-  "started_at": "2026-10-08T14:01:29.137Z",
-  "finished_at": "2026-10-08T14:01:39.663Z",
+  "started_at": "2026-10-08T14:01:21.653Z",
+  "finished_at": "2026-10-08T14:01:29.111Z",
   "success": false,
-  "updated_metrics": [],
-  "unchanged_metrics": [
+  "updated_metrics": [
     "nasdaq100:pe",
     "nasdaq100:forward_pe_fy1",
     "sp500:pe",
-    "sp500:forward_pe_fy1",
+    "sp500:forward_pe_fy1"
+  ],
+  "unchanged_metrics": [
     "csi_a500:pb",
     "csi_a500:rolling_pe",
     "dividend_lowvol100:rolling_pe",
