@@ -4547,6 +4547,62 @@
       "latest_available_checked_at": "2026-10-08T13:37:24.373Z",
       "quality": "verified official historical factsheet",
       "status": "available"
+    },
+    {
+      "asset_id": "nasdaq100",
+      "metric": "drawdown",
+      "value": -0.2069,
+      "unit": "%",
+      "observation_date": "2026-10-07",
+      "published_date": "2026-10-07",
+      "source": "FRED NASDAQ100 derived daily history",
+      "source_url": "https://fred.stlouisfed.org/series/NASDAQ100",
+      "retrieved_at": "2026-10-08T13:46:19.476Z",
+      "latest_available_checked_at": "2026-10-08T13:46:19.476Z",
+      "quality": "automatic verified calculation",
+      "status": "available"
+    },
+    {
+      "asset_id": "nasdaq100",
+      "metric": "price",
+      "value": 31160.08,
+      "unit": "index points",
+      "observation_date": "2026-10-07",
+      "published_date": "2026-10-07",
+      "source": "FRED",
+      "source_url": "https://fred.stlouisfed.org/series/NASDAQ100",
+      "retrieved_at": "2026-10-08T13:46:18.860Z",
+      "latest_available_checked_at": "2026-10-08T13:46:18.860Z",
+      "quality": "automatic verified",
+      "status": "available"
+    },
+    {
+      "asset_id": "nasdaq100",
+      "metric": "trend",
+      "value": 13.0142,
+      "unit": "%",
+      "observation_date": "2026-10-07",
+      "published_date": "2026-10-07",
+      "source": "FRED NASDAQ100 derived daily history",
+      "source_url": "https://fred.stlouisfed.org/series/NASDAQ100",
+      "retrieved_at": "2026-10-08T13:46:19.476Z",
+      "latest_available_checked_at": "2026-10-08T13:46:19.476Z",
+      "quality": "automatic verified calculation",
+      "status": "available"
+    },
+    {
+      "asset_id": "nasdaq100",
+      "metric": "volatility",
+      "value": 19.8975,
+      "unit": "%",
+      "observation_date": "2026-10-07",
+      "published_date": "2026-10-07",
+      "source": "FRED NASDAQ100 derived daily history",
+      "source_url": "https://fred.stlouisfed.org/series/NASDAQ100",
+      "retrieved_at": "2026-10-08T13:46:19.476Z",
+      "latest_available_checked_at": "2026-10-08T13:46:19.476Z",
+      "quality": "automatic verified calculation",
+      "status": "available"
     }
   ]
 }

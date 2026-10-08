@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "last_daily_refresh": "2026-10-08T01:04:59.455Z",
+  "last_daily_refresh": "2026-10-08T13:46:19.504Z",
   "last_weekly_refresh": "2026-09-27T23:51:36.427Z",
   "daily_status": "Healthy",
   "weekly_status": "Healthy",
-  "generated_at": "2026-10-08T13:38:52.321Z",
+  "generated_at": "2026-10-08T13:46:19.547Z",
   "assets": {
     "nasdaq100": {
-      "latest_market_date": "2026-10-06",
+      "latest_market_date": "2026-10-07",
       "latest_valuation_date": "2026-09-24",
       "latest_fundamental_date": "2026-07-10",
       "latest_available_checked_at": "2026-09-27T23:51:29.527Z",
@@ -27,7 +27,7 @@
           "latest_available_checked_at": "2026-09-27T23:51:29.555Z"
         }
       },
-      "history_sample_count": 110,
+      "history_sample_count": 114,
       "history_sample_count_by_metric": {
         "pe": 6,
         "forward_pe_fy1": 3
@@ -64,7 +64,7 @@
       "latest_market_date": "2026-10-08",
       "latest_valuation_date": null,
       "latest_fundamental_date": null,
-      "latest_available_checked_at": "2026-10-08T01:04:59.354Z",
+      "latest_available_checked_at": "2026-10-08T13:46:19.383Z",
       "sla_status": "Healthy",
       "source_status": "supervised",
       "metric_status": {},
