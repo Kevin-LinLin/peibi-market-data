@@ -6,6 +6,19 @@ const [market, valuation, history, latestRun] = await Promise.all([
 ]);
 const latest = (rows, id, predicate) => rows.filter(row => row.asset_id === id && predicate(row)).sort((a, b) => b.observation_date.localeCompare(a.observation_date))[0];
 const slaStatus = checked => !checked ? 'Warning' : daysSince(checked) <= 7 ? 'Healthy' : daysSince(checked) <= 14 ? 'Delayed' : 'Warning';
+const refreshStatus = (lastSuccess, lastAttemptStatus, healthyDays, warningDays) => {
+  if (lastAttemptStatus === 'failed') return 'Warning';
+  if (!lastSuccess) return 'Warning';
+  const age = daysSince(lastSuccess);
+  return age <= healthyDays ? 'Healthy' : age <= warningDays ? 'Delayed' : 'Warning';
+};
+const old = await json('data/data-health.json');
+const weeklyFailedSources = latestRun.run_type === 'weekly'
+  ? (latestRun.failed_sources ?? [])
+  : (old.weekly_failed_sources ?? []);
+const failedSourceByMetric = new Map(
+  weeklyFailedSources.map(item => [`${item.asset_id}:${item.metric}`, item])
+);
 const assets = {};
 
 for (const asset of ASSETS) {
@@ -22,15 +35,26 @@ for (const asset of ASSETS) {
     : (rows.map(row => row.latest_available_checked_at).filter(Boolean).sort().at(0) ?? null);
   const metric_status = Object.fromEntries(coreMetrics.map(metric => {
     const row = coreRows.find(item => item.metric === metric);
-    return [metric, row ? { source_status: 'available', status: row.status, observation_date: row.observation_date, latest_available_checked_at: row.latest_available_checked_at } : { source_status: 'source_failure', status: 'unavailable', latest_available_checked_at: null }];
+    const failure = failedSourceByMetric.get(`${id}:${metric}`);
+    if (failure) {
+      return [metric, {
+        source_status: 'source_failure',
+        status: row ? 'last_known_good' : 'unavailable',
+        observation_date: row?.observation_date ?? null,
+        latest_available_checked_at: row?.latest_available_checked_at ?? null,
+        error: failure.error
+      }];
+    }
+    return [metric, row ? { source_status: 'available', status: row.status, observation_date: row.observation_date, latest_available_checked_at: row.latest_available_checked_at } : { source_status: 'source_missing', status: 'unavailable', latest_available_checked_at: null }];
   }));
+  const hasSourceFailure = coreMetrics.some(metric => failedSourceByMetric.has(`${id}:${metric}`));
   assets[id] = {
     latest_market_date: marketRow?.observation_date ?? null,
     latest_valuation_date: coreRows.map(row => row.observation_date).sort().at(-1) ?? latest(valuation.metrics, id, row => !['earnings_growth', 'roe'].includes(row.metric))?.observation_date ?? null,
     latest_fundamental_date: latest(valuation.metrics, id, row => ['earnings_growth', 'roe'].includes(row.metric))?.observation_date ?? null,
     latest_available_checked_at: checked,
     sla_status: slaStatus(checked),
-    source_status: coreMetrics.length ? (coreRows.length === coreMetrics.length ? 'available' : 'partial') : (rows.length ? 'supervised' : 'core_data_missing'),
+    source_status: coreMetrics.length ? (hasSourceFailure || coreRows.length !== coreMetrics.length ? 'partial' : 'available') : (rows.length ? 'supervised' : 'core_data_missing'),
     metric_status,
     history_sample_count: history.records.filter(row => row.asset_id === id).length,
     history_sample_count_by_metric: Object.fromEntries(
@@ -46,13 +70,25 @@ for (const asset of ASSETS) {
   };
 }
 
-const old = await json('data/data-health.json');
+const finishedAt = latestRun.finished_at ?? now();
+const lastDailyAttempt = latestRun.run_type === 'daily' ? finishedAt : (old.last_daily_attempt ?? old.last_daily_refresh ?? null);
+const lastDailyRefresh = latestRun.run_type === 'daily' && latestRun.success ? finishedAt : (old.last_daily_refresh ?? null);
+const dailyAttemptStatus = latestRun.run_type === 'daily' ? (latestRun.success ? 'success' : 'failed') : (old.daily_last_run_status ?? 'unknown');
+const lastWeeklyAttempt = latestRun.run_type === 'weekly' ? finishedAt : (old.last_weekly_attempt ?? old.last_weekly_refresh ?? null);
+const lastWeeklyRefresh = latestRun.run_type === 'weekly' && latestRun.success ? finishedAt : (old.last_weekly_refresh ?? null);
+const weeklyAttemptStatus = latestRun.run_type === 'weekly' ? (latestRun.success ? 'success' : 'failed') : (old.weekly_last_run_status ?? 'unknown');
+
 await save('data/data-health.json', {
   schema_version: 1,
-  last_daily_refresh: latestRun.run_type === 'daily' ? latestRun.finished_at : old.last_daily_refresh,
-  last_weekly_refresh: latestRun.run_type === 'weekly' ? latestRun.finished_at : old.last_weekly_refresh,
-  daily_status: latestRun.run_type === 'daily' ? (latestRun.success ? 'Healthy' : 'Warning') : old.daily_status,
-  weekly_status: latestRun.run_type === 'weekly' ? (latestRun.success ? 'Healthy' : 'Warning') : old.weekly_status,
+  last_daily_attempt: lastDailyAttempt,
+  last_daily_refresh: lastDailyRefresh,
+  daily_last_run_status: dailyAttemptStatus,
+  last_weekly_attempt: lastWeeklyAttempt,
+  last_weekly_refresh: lastWeeklyRefresh,
+  weekly_last_run_status: weeklyAttemptStatus,
+  daily_status: refreshStatus(lastDailyRefresh, dailyAttemptStatus, 3, 7),
+  weekly_status: refreshStatus(lastWeeklyRefresh, weeklyAttemptStatus, 7, 14),
+  weekly_failed_sources: weeklyFailedSources,
   generated_at: now(),
   assets
 });

@@ -29,6 +29,8 @@ jobs:
         run: sudo apt-get update && sudo apt-get install --yes poppler-utils
 
       - name: Check valuation sources (one retry)
+        id: valuation_refresh
+        continue-on-error: true
         run: node scripts/refresh-weekly.js || node scripts/refresh-weekly.js
 
       - name: Build health, calculate score and validate
@@ -49,3 +51,11 @@ jobs:
           path: '.'
 
       - uses: actions/deploy-pages@v4
+
+      - name: Report valuation source failure
+        if: always()
+        run: |
+          if [ "${{ steps.valuation_refresh.outcome }}" != "success" ]; then
+            echo "One or more valuation sources failed after retry. Valid sources and Last Known Good data were still published."
+            exit 1
+          fi
