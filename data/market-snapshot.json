@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "as_of": "2026-10-08",
-  "generated_at": "2026-10-08T01:04:59.572Z",
+  "generated_at": "2026-10-08T13:38:28.323Z",
   "model_version": "production-v1-simplified-valuation",
   "assets": {
     "nasdaq100": {
@@ -93,13 +93,13 @@
       "model": "production-v1-gold-frozen"
     },
     "csi_a500": {
-      "score": 50,
+      "score": 45,
       "score_type": "simplified_valuation",
       "investment_status": "中性",
       "valuation_status": "合理",
       "confidence": "Low",
       "valuation_context_type": "limited_history_percentile",
-      "valuation": 50,
+      "valuation": 45,
       "valuation_inputs": [
         {
           "metric": "rolling_pe",
@@ -110,8 +110,8 @@
           "baseline_metric": null,
           "baseline_value": null,
           "weight": 0.7,
-          "score": 50,
-          "sample_count": 1,
+          "score": 45.45454545454545,
+          "sample_count": 2,
           "context": "limited_history_percentile"
         },
         {
@@ -123,8 +123,8 @@
           "baseline_metric": null,
           "baseline_value": null,
           "weight": 0.3,
-          "score": 50,
-          "sample_count": 1,
+          "score": 45.45454545454545,
+          "sample_count": 2,
           "context": "limited_history_percentile"
         }
       ],
@@ -136,13 +136,13 @@
       "score_observation_date": "2026-08-31"
     },
     "dividend_lowvol100": {
-      "score": 50,
+      "score": 45,
       "score_type": "simplified_valuation",
       "investment_status": "中性",
       "valuation_status": "合理",
       "confidence": "Low",
       "valuation_context_type": "limited_history_percentile",
-      "valuation": 50,
+      "valuation": 45,
       "valuation_inputs": [
         {
           "metric": "dividend_yield",
@@ -153,8 +153,8 @@
           "baseline_metric": null,
           "baseline_value": null,
           "weight": 0.6,
-          "score": 50,
-          "sample_count": 1,
+          "score": 45.45454545454545,
+          "sample_count": 2,
           "context": "limited_history_percentile"
         },
         {
@@ -166,8 +166,8 @@
           "baseline_metric": null,
           "baseline_value": null,
           "weight": 0.4,
-          "score": 50,
-          "sample_count": 1,
+          "score": 45.45454545454545,
+          "sample_count": 2,
           "context": "limited_history_percentile"
         }
       ],
@@ -216,13 +216,13 @@
       "data_status": "unavailable"
     },
     "csi_securities": {
-      "score": 50,
+      "score": 55,
       "score_type": "simplified_valuation",
       "investment_status": "中性",
       "valuation_status": "合理",
       "confidence": "Low",
       "valuation_context_type": "limited_history_percentile",
-      "valuation": 50,
+      "valuation": 55,
       "valuation_inputs": [
         {
           "metric": "pb",
@@ -233,8 +233,8 @@
           "baseline_metric": null,
           "baseline_value": null,
           "weight": 0.7,
-          "score": 50,
-          "sample_count": 1,
+          "score": 54.54545454545455,
+          "sample_count": 2,
           "context": "limited_history_percentile"
         },
         {
@@ -246,8 +246,8 @@
           "baseline_metric": null,
           "baseline_value": null,
           "weight": 0.3,
-          "score": 50,
-          "sample_count": 1,
+          "score": 54.54545454545455,
+          "sample_count": 2,
           "context": "limited_history_percentile"
         }
       ],

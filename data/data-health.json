@@ -4,7 +4,7 @@
   "last_weekly_refresh": "2026-09-27T23:51:36.427Z",
   "daily_status": "Healthy",
   "weekly_status": "Healthy",
-  "generated_at": "2026-10-08T01:04:59.518Z",
+  "generated_at": "2026-10-08T13:38:52.321Z",
   "assets": {
     "nasdaq100": {
       "latest_market_date": "2026-10-06",
@@ -92,10 +92,10 @@
           "latest_available_checked_at": "2026-09-27T23:51:32.340Z"
         }
       },
-      "history_sample_count": 3,
+      "history_sample_count": 5,
       "history_sample_count_by_metric": {
-        "pb": 1,
-        "rolling_pe": 1
+        "pb": 2,
+        "rolling_pe": 2
       }
     },
     "dividend_lowvol100": {
@@ -119,10 +119,10 @@
           "latest_available_checked_at": "2026-09-27T23:51:33.475Z"
         }
       },
-      "history_sample_count": 3,
+      "history_sample_count": 5,
       "history_sample_count_by_metric": {
-        "rolling_pe": 1,
-        "dividend_yield": 1
+        "rolling_pe": 2,
+        "dividend_yield": 2
       }
     },
     "hangseng_tech": {
@@ -177,10 +177,10 @@
           "latest_available_checked_at": "2026-09-27T23:51:36.419Z"
         }
       },
-      "history_sample_count": 3,
+      "history_sample_count": 5,
       "history_sample_count_by_metric": {
-        "pb": 1,
-        "rolling_pe": 1
+        "pb": 2,
+        "rolling_pe": 2
       }
     }
   }
