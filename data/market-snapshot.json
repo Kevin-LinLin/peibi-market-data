@@ -1,15 +1,15 @@
 {
   "schema_version": 1,
   "as_of": "2026-10-09",
-  "generated_at": "2026-10-09T01:16:36.238Z",
+  "generated_at": "2026-10-09T12:25:10.490Z",
   "model_version": "production-v1-simplified-valuation",
   "assets": {
     "nasdaq100": {
-      "score": 48,
+      "score": 49,
       "investment_status": "中性",
       "valuation_status": "合理",
       "confidence": "Medium",
-      "valuation": 47,
+      "valuation": 48,
       "fundamentals": null,
       "market_condition": 50,
       "risk_health": 53,
@@ -18,28 +18,28 @@
       "valuation_inputs": [
         {
           "metric": "forward_pe_fy1",
-          "value": 23.45,
+          "value": 23.15,
           "unit": "x",
-          "observation_date": "2026-10-07",
+          "observation_date": "2026-10-08",
           "source": "State Street SPDR Portfolio Nasdaq-100 ETF (QNDX)",
           "baseline_metric": "forward_pe_10y_mean",
           "baseline_value": 22.82,
           "weight": 1,
-          "score": 46.549079754601216,
+          "score": 48.192375109553026,
           "sample_count": 1,
           "context": "approximate_band"
         }
       ],
       "data_status": "available",
       "model": "production-v1-simplified-valuation",
-      "score_observation_date": "2026-10-07"
+      "score_observation_date": "2026-10-08"
     },
     "sp500": {
       "score": 44,
       "investment_status": "偏低",
       "valuation_status": "偏贵",
       "confidence": "Medium",
-      "valuation": 38,
+      "valuation": 39,
       "fundamentals": null,
       "market_condition": 51,
       "risk_health": 64,
@@ -48,14 +48,14 @@
       "valuation_inputs": [
         {
           "metric": "forward_pe_fy1",
-          "value": 20.79,
+          "value": 20.69,
           "unit": "x",
-          "observation_date": "2026-10-07",
+          "observation_date": "2026-10-08",
           "source": "State Street SPDR S&P 500 ETF Trust (SPY)",
           "baseline_metric": "forward_pe_10y_mean",
           "baseline_value": 19.03,
           "weight": 1,
-          "score": 38.43930635838151,
+          "score": 39.096163951655285,
           "sample_count": 1,
           "context": "approximate_band"
         }
@@ -93,38 +93,38 @@
       "model": "production-v1-gold-frozen"
     },
     "csi_a500": {
-      "score": 45,
+      "score": 59,
       "score_type": "simplified_valuation",
       "investment_status": "中性",
       "valuation_status": "合理",
-      "confidence": "Low",
+      "confidence": "Medium",
       "valuation_context_type": "limited_history_percentile",
-      "valuation": 45,
+      "valuation": 59,
       "valuation_inputs": [
         {
           "metric": "rolling_pe",
-          "value": 16.61,
+          "value": 14.72,
           "unit": "x",
-          "observation_date": "2026-08-31",
+          "observation_date": "2026-09-30",
           "source": "China Securities Index A500 factsheet",
           "baseline_metric": null,
           "baseline_value": null,
           "weight": 0.7,
-          "score": 45.45454545454545,
-          "sample_count": 2,
+          "score": 59.09090909090909,
+          "sample_count": 3,
           "context": "limited_history_percentile"
         },
         {
           "metric": "pb",
-          "value": 1.64,
+          "value": 1.55,
           "unit": "x",
-          "observation_date": "2026-08-31",
+          "observation_date": "2026-09-30",
           "source": "China Securities Index A500 factsheet",
           "baseline_metric": null,
           "baseline_value": null,
           "weight": 0.3,
-          "score": 45.45454545454545,
-          "sample_count": 2,
+          "score": 59.09090909090909,
+          "sample_count": 3,
           "context": "limited_history_percentile"
         }
       ],
@@ -133,41 +133,41 @@
       "risk_health": null,
       "data_status": "available",
       "model": "production-v1-simplified-valuation",
-      "score_observation_date": "2026-08-31"
+      "score_observation_date": "2026-09-30"
     },
     "dividend_lowvol100": {
-      "score": 45,
+      "score": 50,
       "score_type": "simplified_valuation",
       "investment_status": "中性",
       "valuation_status": "合理",
-      "confidence": "Low",
+      "confidence": "Medium",
       "valuation_context_type": "limited_history_percentile",
-      "valuation": 45,
+      "valuation": 50,
       "valuation_inputs": [
         {
           "metric": "dividend_yield",
-          "value": 4.6,
+          "value": 5.01,
           "unit": "%",
-          "observation_date": "2026-08-31",
+          "observation_date": "2026-09-30",
           "source": "China Securities Index Dividend Low Volatility 100 factsheet",
           "baseline_metric": null,
           "baseline_value": null,
           "weight": 0.6,
-          "score": 45.45454545454545,
-          "sample_count": 2,
+          "score": 50,
+          "sample_count": 3,
           "context": "limited_history_percentile"
         },
         {
           "metric": "rolling_pe",
-          "value": 8.85,
+          "value": 8.67,
           "unit": "x",
-          "observation_date": "2026-08-31",
+          "observation_date": "2026-09-30",
           "source": "China Securities Index Dividend Low Volatility 100 factsheet",
           "baseline_metric": null,
           "baseline_value": null,
           "weight": 0.4,
-          "score": 45.45454545454545,
-          "sample_count": 2,
+          "score": 50,
+          "sample_count": 3,
           "context": "limited_history_percentile"
         }
       ],
@@ -176,28 +176,28 @@
       "risk_health": null,
       "data_status": "available",
       "model": "production-v1-simplified-valuation",
-      "score_observation_date": "2026-08-31"
+      "score_observation_date": "2026-09-30"
     },
     "hangseng_tech": {
-      "score": 59,
+      "score": 64,
       "score_type": "simplified_valuation",
       "investment_status": "中性",
       "valuation_status": "合理",
       "confidence": "High",
       "valuation_context_type": "exact_percentile",
-      "valuation": 59,
+      "valuation": 64,
       "valuation_inputs": [
         {
           "metric": "pe",
-          "value": 30.78,
+          "value": 28.23,
           "unit": "x",
-          "observation_date": "2026-08-31",
+          "observation_date": "2026-09-30",
           "source": "Hang Seng TECH Index factsheet",
           "baseline_metric": null,
           "baseline_value": null,
           "weight": 1,
-          "score": 59.375,
-          "sample_count": 33,
+          "score": 63.63636363636363,
+          "sample_count": 34,
           "context": "exact_percentile"
         }
       ],
@@ -206,7 +206,7 @@
       "risk_health": null,
       "data_status": "available",
       "model": "production-v1-simplified-valuation",
-      "score_observation_date": "2026-08-31"
+      "score_observation_date": "2026-09-30"
     },
     "csi_healthcare": {
       "score": null,
@@ -216,38 +216,38 @@
       "data_status": "unavailable"
     },
     "csi_securities": {
-      "score": 55,
+      "score": 59,
       "score_type": "simplified_valuation",
       "investment_status": "中性",
       "valuation_status": "合理",
-      "confidence": "Low",
+      "confidence": "Medium",
       "valuation_context_type": "limited_history_percentile",
-      "valuation": 55,
+      "valuation": 59,
       "valuation_inputs": [
         {
           "metric": "pb",
-          "value": 1.17,
+          "value": 1.07,
           "unit": "x",
-          "observation_date": "2026-08-31",
+          "observation_date": "2026-09-30",
           "source": "China Securities Index Securities factsheet",
           "baseline_metric": null,
           "baseline_value": null,
           "weight": 0.7,
-          "score": 54.54545454545455,
-          "sample_count": 2,
+          "score": 59.09090909090909,
+          "sample_count": 3,
           "context": "limited_history_percentile"
         },
         {
           "metric": "rolling_pe",
-          "value": 15.46,
+          "value": 12.14,
           "unit": "x",
-          "observation_date": "2026-08-31",
+          "observation_date": "2026-09-30",
           "source": "China Securities Index Securities factsheet",
           "baseline_metric": null,
           "baseline_value": null,
           "weight": 0.3,
-          "score": 54.54545454545455,
-          "sample_count": 2,
+          "score": 59.09090909090909,
+          "sample_count": 3,
           "context": "limited_history_percentile"
         }
       ],
@@ -256,7 +256,7 @@
       "risk_health": null,
       "data_status": "available",
       "model": "production-v1-simplified-valuation",
-      "score_observation_date": "2026-08-31"
+      "score_observation_date": "2026-09-30"
     }
   }
 }
