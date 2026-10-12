@@ -1,10 +1,11 @@
 {
-  "run_id": "weekly-20261009121957677",
+  "run_id": "weekly-20261012003910614",
   "run_type": "weekly",
-  "started_at": "2026-10-09T12:19:57.677Z",
-  "finished_at": "2026-10-09T12:25:10.392Z",
+  "started_at": "2026-10-12T00:39:10.614Z",
+  "finished_at": "2026-10-12T00:39:18.405Z",
   "success": true,
-  "updated_metrics": [
+  "updated_metrics": [],
+  "unchanged_metrics": [
     "nasdaq100:pe",
     "nasdaq100:forward_pe_fy1",
     "sp500:pe",
@@ -17,7 +18,6 @@
     "csi_securities:pb",
     "csi_securities:rolling_pe"
   ],
-  "unchanged_metrics": [],
   "failed_metrics": [],
   "failed_sources": [],
   "warnings": [],
