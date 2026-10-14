@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "last_daily_attempt": "2026-10-14T00:23:02.116Z",
-  "last_daily_refresh": "2026-10-14T00:23:02.116Z",
+  "last_daily_attempt": "2026-10-14T23:58:18.043Z",
+  "last_daily_refresh": "2026-10-14T23:58:18.043Z",
   "daily_last_run_status": "success",
   "last_weekly_attempt": "2026-10-12T00:39:18.405Z",
   "last_weekly_refresh": "2026-10-12T00:39:18.405Z",
@@ -9,10 +9,10 @@
   "daily_status": "Healthy",
   "weekly_status": "Healthy",
   "weekly_failed_sources": [],
-  "generated_at": "2026-10-14T00:23:02.167Z",
+  "generated_at": "2026-10-14T23:58:18.118Z",
   "assets": {
     "nasdaq100": {
-      "latest_market_date": "2026-10-12",
+      "latest_market_date": "2026-10-13",
       "latest_valuation_date": "2026-10-08",
       "latest_fundamental_date": "2026-07-10",
       "latest_available_checked_at": "2026-10-12T00:39:10.941Z",
@@ -32,7 +32,7 @@
           "latest_available_checked_at": "2026-10-12T00:39:10.976Z"
         }
       },
-      "history_sample_count": 126,
+      "history_sample_count": 130,
       "history_sample_count_by_metric": {
         "pe": 8,
         "forward_pe_fy1": 5
@@ -69,11 +69,11 @@
       "latest_market_date": "2026-10-14",
       "latest_valuation_date": null,
       "latest_fundamental_date": null,
-      "latest_available_checked_at": "2026-10-14T00:23:02.027Z",
+      "latest_available_checked_at": "2026-10-14T23:58:17.914Z",
       "sla_status": "Healthy",
       "source_status": "supervised",
       "metric_status": {},
-      "history_sample_count": 69,
+      "history_sample_count": 70,
       "history_sample_count_by_metric": {}
     },
     "csi_a500": {
