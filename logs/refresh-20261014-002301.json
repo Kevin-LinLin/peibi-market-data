@@ -1,0 +1,33 @@
+{
+  "run_id": "daily-2026-10-14T00:23:01.710Z",
+  "run_type": "daily",
+  "started_at": "2026-10-14T00:23:01.710Z",
+  "finished_at": "2026-10-14T00:23:02.116Z",
+  "success": true,
+  "updated_metrics": [
+    "nasdaq100:price",
+    "sp500:price",
+    "gold:price",
+    "gold:real_yield",
+    "gold:usd_index",
+    "nasdaq100:volatility",
+    "nasdaq100:drawdown",
+    "nasdaq100:trend",
+    "sp500:volatility",
+    "sp500:drawdown",
+    "sp500:trend"
+  ],
+  "unchanged_metrics": [
+    "gold:volatility",
+    "gold:trend",
+    "gold:drawdown",
+    "csi_a500:price",
+    "dividend_lowvol100:price",
+    "hangseng_tech:price",
+    "csi_healthcare:price",
+    "csi_securities:price"
+  ],
+  "failed_metrics": [],
+  "failed_sources": [],
+  "validation_errors": []
+}

@@ -1,14 +1,15 @@
 {
-  "run_id": "daily-2026-10-13T02:37:23.123Z",
+  "run_id": "daily-2026-10-14T00:23:01.710Z",
   "run_type": "daily",
-  "started_at": "2026-10-13T02:37:23.123Z",
-  "finished_at": "2026-10-13T02:37:24.207Z",
+  "started_at": "2026-10-14T00:23:01.710Z",
+  "finished_at": "2026-10-14T00:23:02.116Z",
   "success": true,
   "updated_metrics": [
     "nasdaq100:price",
     "sp500:price",
     "gold:price",
     "gold:real_yield",
+    "gold:usd_index",
     "nasdaq100:volatility",
     "nasdaq100:drawdown",
     "nasdaq100:trend",
@@ -17,7 +18,6 @@
     "sp500:trend"
   ],
   "unchanged_metrics": [
-    "gold:usd_index",
     "gold:volatility",
     "gold:trend",
     "gold:drawdown",
