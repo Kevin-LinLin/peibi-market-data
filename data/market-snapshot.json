@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "as_of": "2026-10-23",
-  "generated_at": "2026-10-23T23:53:06.766Z",
+  "generated_at": "2026-10-25T23:22:57.062Z",
   "model_version": "production-v1-simplified-valuation",
   "assets": {
     "nasdaq100": {
@@ -18,14 +18,14 @@
       "valuation_inputs": [
         {
           "metric": "forward_pe_fy1",
-          "value": 22.52,
+          "value": 22.38,
           "unit": "x",
-          "observation_date": "2026-10-15",
+          "observation_date": "2026-10-22",
           "source": "State Street SPDR Portfolio Nasdaq-100 ETF (QNDX)",
           "baseline_metric": "forward_pe_10y_mean",
           "baseline_value": 22.82,
           "weight": 1,
-          "score": 51.64329535495181,
+          "score": 52.41016652059597,
           "sample_count": 1,
           "context": "approximate_band"
         }
@@ -35,11 +35,11 @@
       "score_observation_date": "2026-10-22"
     },
     "sp500": {
-      "score": 45,
+      "score": 46,
       "investment_status": "中性",
       "valuation_status": "偏贵",
       "confidence": "Medium",
-      "valuation": 40,
+      "valuation": 41,
       "fundamentals": null,
       "market_condition": 51,
       "risk_health": 65,
@@ -48,21 +48,21 @@
       "valuation_inputs": [
         {
           "metric": "forward_pe_fy1",
-          "value": 20.59,
+          "value": 20.33,
           "unit": "x",
-          "observation_date": "2026-10-15",
+          "observation_date": "2026-10-22",
           "source": "State Street SPDR S&P 500 ETF Trust (SPY)",
           "baseline_metric": "forward_pe_10y_mean",
           "baseline_value": 19.03,
           "weight": 1,
-          "score": 39.753021544929055,
+          "score": 41.46085128744091,
           "sample_count": 1,
           "context": "approximate_band"
         }
       ],
       "data_status": "available",
       "model": "production-v1-simplified-valuation",
-      "score_observation_date": "2026-10-21"
+      "score_observation_date": "2026-10-22"
     },
     "gold": {
       "score": 16,

@@ -1,0 +1,26 @@
+{
+  "run_id": "weekly-20261025232244748",
+  "run_type": "weekly",
+  "started_at": "2026-10-25T23:22:44.748Z",
+  "finished_at": "2026-10-25T23:22:56.976Z",
+  "success": true,
+  "updated_metrics": [
+    "nasdaq100:pe",
+    "nasdaq100:forward_pe_fy1",
+    "sp500:pe",
+    "sp500:forward_pe_fy1"
+  ],
+  "unchanged_metrics": [
+    "csi_a500:pb",
+    "csi_a500:rolling_pe",
+    "dividend_lowvol100:rolling_pe",
+    "dividend_lowvol100:dividend_yield",
+    "hangseng_tech:pe",
+    "csi_securities:pb",
+    "csi_securities:rolling_pe"
+  ],
+  "failed_metrics": [],
+  "failed_sources": [],
+  "warnings": [],
+  "validation_errors": []
+}
