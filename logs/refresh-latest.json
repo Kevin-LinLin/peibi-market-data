@@ -1,26 +1,33 @@
 {
-  "run_id": "weekly-20261025232244748",
-  "run_type": "weekly",
-  "started_at": "2026-10-25T23:22:44.748Z",
-  "finished_at": "2026-10-25T23:22:56.976Z",
+  "run_id": "daily-2026-10-27T00:35:32.103Z",
+  "run_type": "daily",
+  "started_at": "2026-10-27T00:35:32.103Z",
+  "finished_at": "2026-10-27T00:35:32.786Z",
   "success": true,
   "updated_metrics": [
-    "nasdaq100:pe",
-    "nasdaq100:forward_pe_fy1",
-    "sp500:pe",
-    "sp500:forward_pe_fy1"
+    "nasdaq100:price",
+    "sp500:price",
+    "gold:price",
+    "gold:real_yield",
+    "gold:usd_index",
+    "nasdaq100:volatility",
+    "nasdaq100:drawdown",
+    "nasdaq100:trend",
+    "sp500:volatility",
+    "sp500:drawdown",
+    "sp500:trend"
   ],
   "unchanged_metrics": [
-    "csi_a500:pb",
-    "csi_a500:rolling_pe",
-    "dividend_lowvol100:rolling_pe",
-    "dividend_lowvol100:dividend_yield",
-    "hangseng_tech:pe",
-    "csi_securities:pb",
-    "csi_securities:rolling_pe"
+    "gold:volatility",
+    "gold:trend",
+    "gold:drawdown",
+    "csi_a500:price",
+    "dividend_lowvol100:price",
+    "hangseng_tech:price",
+    "csi_healthcare:price",
+    "csi_securities:price"
   ],
   "failed_metrics": [],
   "failed_sources": [],
-  "warnings": [],
   "validation_errors": []
 }
