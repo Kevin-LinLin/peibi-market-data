@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "last_daily_attempt": "2026-11-05T01:31:27.052Z",
-  "last_daily_refresh": "2026-11-05T01:31:27.052Z",
+  "last_daily_attempt": "2026-11-06T01:39:01.873Z",
+  "last_daily_refresh": "2026-11-06T01:39:01.873Z",
   "daily_last_run_status": "success",
   "last_weekly_attempt": "2026-11-02T00:55:06.307Z",
   "last_weekly_refresh": "2026-11-02T00:55:06.307Z",
@@ -9,10 +9,10 @@
   "daily_status": "Healthy",
   "weekly_status": "Healthy",
   "weekly_failed_sources": [],
-  "generated_at": "2026-11-05T01:31:27.106Z",
+  "generated_at": "2026-11-06T01:39:01.936Z",
   "assets": {
     "nasdaq100": {
-      "latest_market_date": "2026-11-03",
+      "latest_market_date": "2026-11-04",
       "latest_valuation_date": "2026-10-29",
       "latest_fundamental_date": "2026-07-10",
       "latest_available_checked_at": "2026-11-02T00:54:52.553Z",
@@ -32,14 +32,14 @@
           "latest_available_checked_at": "2026-11-02T00:54:52.603Z"
         }
       },
-      "history_sample_count": 184,
+      "history_sample_count": 188,
       "history_sample_count_by_metric": {
         "pe": 11,
         "forward_pe_fy1": 8
       }
     },
     "sp500": {
-      "latest_market_date": "2026-11-03",
+      "latest_market_date": "2026-11-04",
       "latest_valuation_date": "2026-10-29",
       "latest_fundamental_date": "2026-07-10",
       "latest_available_checked_at": "2026-11-02T00:54:52.635Z",
@@ -59,21 +59,21 @@
           "latest_available_checked_at": "2026-11-02T00:54:52.673Z"
         }
       },
-      "history_sample_count": 172,
+      "history_sample_count": 176,
       "history_sample_count_by_metric": {
         "pe": 11,
         "forward_pe_fy1": 8
       }
     },
     "gold": {
-      "latest_market_date": "2026-11-05",
+      "latest_market_date": "2026-11-06",
       "latest_valuation_date": null,
       "latest_fundamental_date": null,
-      "latest_available_checked_at": "2026-11-05T01:31:26.964Z",
+      "latest_available_checked_at": "2026-11-06T01:39:01.748Z",
       "sla_status": "Healthy",
       "source_status": "supervised",
       "metric_status": {},
-      "history_sample_count": 99,
+      "history_sample_count": 101,
       "history_sample_count_by_metric": {}
     },
     "csi_a500": {
