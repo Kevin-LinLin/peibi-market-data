@@ -1,17 +1,17 @@
 {
   "schema_version": 1,
-  "as_of": "2026-11-10",
-  "generated_at": "2026-11-10T03:38:43.976Z",
+  "as_of": "2026-11-11",
+  "generated_at": "2026-11-11T01:18:11.968Z",
   "model_version": "production-v1-simplified-valuation",
   "assets": {
     "nasdaq100": {
-      "score": 63,
+      "score": 62,
       "investment_status": "中性",
       "valuation_status": "合理",
       "confidence": "Medium",
       "valuation": 63,
       "fundamentals": null,
-      "market_condition": 70,
+      "market_condition": 66,
       "risk_health": 51,
       "valuation_context_type": "approximate_band",
       "score_type": "simplified_valuation",
@@ -32,16 +32,16 @@
       ],
       "data_status": "available",
       "model": "production-v1-simplified-valuation",
-      "score_observation_date": "2026-11-06"
+      "score_observation_date": "2026-11-09"
     },
     "sp500": {
-      "score": 52,
+      "score": 51,
       "investment_status": "中性",
       "valuation_status": "合理",
       "confidence": "Medium",
       "valuation": 48,
       "fundamentals": null,
-      "market_condition": 59,
+      "market_condition": 55,
       "risk_health": 63,
       "valuation_context_type": "approximate_band",
       "score_type": "simplified_valuation",
@@ -62,33 +62,33 @@
       ],
       "data_status": "available",
       "model": "production-v1-simplified-valuation",
-      "score_observation_date": "2026-11-05"
+      "score_observation_date": "2026-11-09"
     },
     "gold": {
-      "score": 15,
+      "score": 16,
       "investment_status": "明显偏低",
       "valuation_status": "明显偏贵",
       "confidence": "High",
       "components": {
-        "real_yield": 1.1,
+        "real_yield": 1.01,
         "usd": 8.6,
-        "price_position": 3.52,
-        "long_term_trend": 49.46,
-        "risk_health": 50.71
+        "price_position": 4.84,
+        "long_term_trend": 50.09,
+        "risk_health": 50.41
       },
-      "score_observation_date": "2026-11-10",
-      "latest_input_observation_date": "2026-11-10",
+      "score_observation_date": "2026-11-11",
+      "latest_input_observation_date": "2026-11-11",
       "score_status": "current",
       "data_status": "available",
-      "valuation": 4,
+      "valuation": 5,
       "diagnostics": {
-        "real_yield_percentile": 98.9,
+        "real_yield_percentile": 98.99,
         "usd_percentile": 91.4,
-        "real_price_percentile": 98.8,
-        "rolling_10y_percentile": 94.17,
-        "combined_price_percentile": 96.48,
-        "twelve_month_return": 22.16,
-        "annualized_volatility": 21.43
+        "real_price_percentile": 98.65,
+        "rolling_10y_percentile": 91.67,
+        "combined_price_percentile": 95.16,
+        "twelve_month_return": 19.65,
+        "annualized_volatility": 21.62
       },
       "model": "production-v1-gold-frozen"
     },
