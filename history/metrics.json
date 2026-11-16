@@ -8187,6 +8187,76 @@
       "latest_available_checked_at": "2026-11-14T01:29:44.793Z",
       "quality": "automatic verified calculation",
       "status": "available"
+    },
+    {
+      "asset_id": "hangseng_tech",
+      "metric": "pe",
+      "value": 25.43,
+      "unit": "x",
+      "observation_date": "2026-10-30",
+      "published_date": "2026-10-30",
+      "source": "Hang Seng TECH Index factsheet",
+      "source_url": "https://www.hsi.com.hk/api/wsit-hsi-ddoc-ea-public-website-proxy/v1/content/gcs/download?resource=%2Fpublic-website%2Fwebapp%2Ffactsheets%2Fen-hk%2Fhstech.pdf",
+      "retrieved_at": "2026-11-16T01:10:58.433Z",
+      "latest_available_checked_at": "2026-11-16T01:10:58.433Z",
+      "quality": "official parsed source",
+      "status": "available"
+    },
+    {
+      "asset_id": "nasdaq100",
+      "metric": "forward_pe_fy1",
+      "value": 21.54,
+      "unit": "x",
+      "observation_date": "2026-11-12",
+      "published_date": "2026-11-12",
+      "source": "State Street SPDR Portfolio Nasdaq-100 ETF (QNDX)",
+      "source_url": "https://www.ssga.com/us/en/individual/etfs/state-street-spdr-portfolio-nasdaq-100-etf-qndx",
+      "retrieved_at": "2026-11-16T01:10:51.086Z",
+      "latest_available_checked_at": "2026-11-16T01:10:51.086Z",
+      "quality": "official parsed source",
+      "status": "available"
+    },
+    {
+      "asset_id": "nasdaq100",
+      "metric": "pe",
+      "value": 26.79,
+      "unit": "x",
+      "observation_date": "2026-11-12",
+      "published_date": "2026-11-12",
+      "source": "State Street SPDR Portfolio Nasdaq-100 ETF (QNDX)",
+      "source_url": "https://www.ssga.com/us/en/individual/etfs/state-street-spdr-portfolio-nasdaq-100-etf-qndx",
+      "retrieved_at": "2026-11-16T01:10:51.008Z",
+      "latest_available_checked_at": "2026-11-16T01:10:51.008Z",
+      "quality": "official parsed source",
+      "status": "available"
+    },
+    {
+      "asset_id": "sp500",
+      "metric": "forward_pe_fy1",
+      "value": 19.92,
+      "unit": "x",
+      "observation_date": "2026-11-12",
+      "published_date": "2026-11-12",
+      "source": "State Street SPDR S&P 500 ETF Trust (SPY)",
+      "source_url": "https://www.ssga.com/us/en/individual/etfs/state-street-spdr-sp-500-etf-trust-spy",
+      "retrieved_at": "2026-11-16T01:10:51.151Z",
+      "latest_available_checked_at": "2026-11-16T01:10:51.151Z",
+      "quality": "official parsed source",
+      "status": "available"
+    },
+    {
+      "asset_id": "sp500",
+      "metric": "pe",
+      "value": 23.53,
+      "unit": "x",
+      "observation_date": "2026-11-12",
+      "published_date": "2026-11-12",
+      "source": "State Street SPDR S&P 500 ETF Trust (SPY)",
+      "source_url": "https://www.ssga.com/us/en/individual/etfs/state-street-spdr-sp-500-etf-trust-spy",
+      "retrieved_at": "2026-11-16T01:10:51.126Z",
+      "latest_available_checked_at": "2026-11-16T01:10:51.126Z",
+      "quality": "official parsed source",
+      "status": "available"
     }
   ]
 }
