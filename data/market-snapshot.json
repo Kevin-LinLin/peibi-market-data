@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "as_of": "2026-11-20",
-  "generated_at": "2026-11-20T02:25:03.799Z",
+  "as_of": "2026-11-21",
+  "generated_at": "2026-11-21T02:32:23.399Z",
   "model_version": "production-v1-simplified-valuation",
   "assets": {
     "nasdaq100": {
@@ -11,8 +11,8 @@
       "confidence": "Medium",
       "valuation": 57,
       "fundamentals": null,
-      "market_condition": 70,
-      "risk_health": 51,
+      "market_condition": 73,
+      "risk_health": 50,
       "valuation_context_type": "approximate_band",
       "score_type": "simplified_valuation",
       "valuation_inputs": [
@@ -32,16 +32,16 @@
       ],
       "data_status": "available",
       "model": "production-v1-simplified-valuation",
-      "score_observation_date": "2026-11-18"
+      "score_observation_date": "2026-11-19"
     },
     "sp500": {
-      "score": 49,
+      "score": 50,
       "investment_status": "中性",
       "valuation_status": "偏贵",
       "confidence": "Medium",
       "valuation": 44,
       "fundamentals": null,
-      "market_condition": 60,
+      "market_condition": 62,
       "risk_health": 63,
       "valuation_context_type": "approximate_band",
       "score_type": "simplified_valuation",
@@ -62,7 +62,7 @@
       ],
       "data_status": "available",
       "model": "production-v1-simplified-valuation",
-      "score_observation_date": "2026-11-18"
+      "score_observation_date": "2026-11-19"
     },
     "gold": {
       "score": 15,
@@ -73,11 +73,11 @@
         "real_yield": 0.29,
         "usd": 6.67,
         "price_position": 5.33,
-        "long_term_trend": 53.72,
-        "risk_health": 43.15
+        "long_term_trend": 53.73,
+        "risk_health": 43.13
       },
-      "score_observation_date": "2026-11-20",
-      "latest_input_observation_date": "2026-11-20",
+      "score_observation_date": "2026-11-21",
+      "latest_input_observation_date": "2026-11-21",
       "score_status": "current",
       "data_status": "available",
       "valuation": 5,
@@ -87,8 +87,8 @@
         "real_price_percentile": 98.5,
         "rolling_10y_percentile": 90.83,
         "combined_price_percentile": 94.67,
-        "twelve_month_return": 5.11,
-        "annualized_volatility": 26.15
+        "twelve_month_return": 5.08,
+        "annualized_volatility": 26.17
       },
       "model": "production-v1-gold-frozen"
     },
