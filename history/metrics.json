@@ -8635,6 +8635,62 @@
       "latest_available_checked_at": "2026-11-21T02:32:23.277Z",
       "quality": "automatic verified calculation",
       "status": "available"
+    },
+    {
+      "asset_id": "nasdaq100",
+      "metric": "forward_pe_fy1",
+      "value": 20.09,
+      "unit": "x",
+      "observation_date": "2026-11-19",
+      "published_date": "2026-11-19",
+      "source": "State Street SPDR Portfolio Nasdaq-100 ETF (QNDX)",
+      "source_url": "https://www.ssga.com/us/en/individual/etfs/state-street-spdr-portfolio-nasdaq-100-etf-qndx",
+      "retrieved_at": "2026-11-23T01:51:34.338Z",
+      "latest_available_checked_at": "2026-11-23T01:51:34.338Z",
+      "quality": "official parsed source",
+      "status": "available"
+    },
+    {
+      "asset_id": "nasdaq100",
+      "metric": "pe",
+      "value": 24.71,
+      "unit": "x",
+      "observation_date": "2026-11-19",
+      "published_date": "2026-11-19",
+      "source": "State Street SPDR Portfolio Nasdaq-100 ETF (QNDX)",
+      "source_url": "https://www.ssga.com/us/en/individual/etfs/state-street-spdr-portfolio-nasdaq-100-etf-qndx",
+      "retrieved_at": "2026-11-23T01:51:34.314Z",
+      "latest_available_checked_at": "2026-11-23T01:51:34.314Z",
+      "quality": "official parsed source",
+      "status": "available"
+    },
+    {
+      "asset_id": "sp500",
+      "metric": "forward_pe_fy1",
+      "value": 18.73,
+      "unit": "x",
+      "observation_date": "2026-11-19",
+      "published_date": "2026-11-19",
+      "source": "State Street SPDR S&P 500 ETF Trust (SPY)",
+      "source_url": "https://www.ssga.com/us/en/individual/etfs/state-street-spdr-sp-500-etf-trust-spy",
+      "retrieved_at": "2026-11-23T01:51:34.375Z",
+      "latest_available_checked_at": "2026-11-23T01:51:34.375Z",
+      "quality": "official parsed source",
+      "status": "available"
+    },
+    {
+      "asset_id": "sp500",
+      "metric": "pe",
+      "value": 21.96,
+      "unit": "x",
+      "observation_date": "2026-11-19",
+      "published_date": "2026-11-19",
+      "source": "State Street SPDR S&P 500 ETF Trust (SPY)",
+      "source_url": "https://www.ssga.com/us/en/individual/etfs/state-street-spdr-sp-500-etf-trust-spy",
+      "retrieved_at": "2026-11-23T01:51:34.357Z",
+      "latest_available_checked_at": "2026-11-23T01:51:34.357Z",
+      "quality": "official parsed source",
+      "status": "available"
     }
   ]
 }
