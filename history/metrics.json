@@ -9013,6 +9013,76 @@
       "latest_available_checked_at": "2026-11-26T03:39:12.044Z",
       "quality": "automatic verified calculation",
       "status": "available"
+    },
+    {
+      "asset_id": "gold",
+      "metric": "price",
+      "value": 3627,
+      "unit": "USD/troy oz",
+      "observation_date": "2026-11-27",
+      "published_date": "2026-11-27",
+      "source": "Gold API",
+      "source_url": "https://api.gold-api.com/price/XAU",
+      "retrieved_at": "2026-11-27T03:40:22.972Z",
+      "latest_available_checked_at": "2026-11-27T03:40:22.972Z",
+      "quality": "automatic verified",
+      "status": "available"
+    },
+    {
+      "asset_id": "nasdaq100",
+      "metric": "drawdown",
+      "value": -16.5824,
+      "unit": "%",
+      "observation_date": "2026-11-25",
+      "published_date": "2026-11-25",
+      "source": "FRED NASDAQ100 derived daily history",
+      "source_url": "https://fred.stlouisfed.org/series/NASDAQ100",
+      "retrieved_at": "2026-11-27T03:40:23.040Z",
+      "latest_available_checked_at": "2026-11-27T03:40:23.040Z",
+      "quality": "automatic verified calculation",
+      "status": "available"
+    },
+    {
+      "asset_id": "nasdaq100",
+      "metric": "price",
+      "value": 26046.9,
+      "unit": "index points",
+      "observation_date": "2026-11-25",
+      "published_date": "2026-11-25",
+      "source": "FRED",
+      "source_url": "https://fred.stlouisfed.org/series/NASDAQ100",
+      "retrieved_at": "2026-11-27T03:40:22.736Z",
+      "latest_available_checked_at": "2026-11-27T03:40:22.736Z",
+      "quality": "automatic verified",
+      "status": "available"
+    },
+    {
+      "asset_id": "nasdaq100",
+      "metric": "trend",
+      "value": -7.2766,
+      "unit": "%",
+      "observation_date": "2026-11-25",
+      "published_date": "2026-11-25",
+      "source": "FRED NASDAQ100 derived daily history",
+      "source_url": "https://fred.stlouisfed.org/series/NASDAQ100",
+      "retrieved_at": "2026-11-27T03:40:23.040Z",
+      "latest_available_checked_at": "2026-11-27T03:40:23.040Z",
+      "quality": "automatic verified calculation",
+      "status": "available"
+    },
+    {
+      "asset_id": "nasdaq100",
+      "metric": "volatility",
+      "value": 23.1674,
+      "unit": "%",
+      "observation_date": "2026-11-25",
+      "published_date": "2026-11-25",
+      "source": "FRED NASDAQ100 derived daily history",
+      "source_url": "https://fred.stlouisfed.org/series/NASDAQ100",
+      "retrieved_at": "2026-11-27T03:40:23.039Z",
+      "latest_available_checked_at": "2026-11-27T03:40:23.039Z",
+      "quality": "automatic verified calculation",
+      "status": "available"
     }
   ]
 }
